@@ -91,6 +91,10 @@ function verifier(profile, done) {
 
 ### new MetadataReader(metadataXml, options)
 
+#### Options parameter details:
+* `authnRequestBinding`: if set to `HTTP-POST`, will attempt to load identityProviderUrl/logoutUrl via HTTP-POST binding in metadata, otherwise defaults to `HTTP-Redirect`
+* `throwExceptions`: if set to `true`, will throw upon exception
+
 Parses metadata XML and extracts the following properties:
 
 * `identifierFormat` (e.g. `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`)
@@ -99,10 +103,6 @@ Parses metadata XML and extracts the following properties:
 * `signingCert`
 * `encryptionCert`
 * `claimSchema` - an object hash of claim identifiers that may be provided in the SAML assertion
-
-#### Options parameter details:
-* `authnRequestBinding`: if set to `HTTP-POST`, will attempt to load identityProviderUrl/logoutUrl via HTTP-POST binding in metadata, otherwise defaults to `HTTP-Redirect`
-* `throwExceptions`: if set to `true`, will throw upon exception
 
 ### metadata(app)(config = {})
 
