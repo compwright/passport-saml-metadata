@@ -1,15 +1,25 @@
 const assert = require('assert');
 const { DOMParser } = require('xmldom');
 const xpath = require('xpath');
-const camel = require('camelcase');
+const {
+  camelCase,
+  merge,
+  find,
+  sortBy
+} = require('lodash');
 const debug = require('debug')('passport-saml-metadata');
 
+const defaultOptions = {
+  authnRequestBinding: 'HTTP-Redirect',
+  throwExceptions: false
+};
+
 class MetadataReader {
-  constructor(metadata, options = {}) {
+  constructor(metadata, options = defaultOptions) {
     assert.equal(typeof metadata, 'string', 'metadata must be an XML string');
     const doc = new DOMParser().parseFromString(metadata);
 
-    this.options = options;
+    this.options = merge({}, defaultOptions, options);
 
     const select = xpath.useNamespaces({
       md: 'urn:oasis:names:tc:SAML:2.0:metadata',
@@ -37,7 +47,26 @@ class MetadataReader {
 
   get identityProviderUrl() {
     try {
-      return this.query('//md:IDPSSODescriptor/md:SingleSignOnService[@Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"]/@Location')[0].value;
+      // Get all of the SingleSignOnService elements in the XML, sort them by the index (if provided)
+      const singleSignOnServiceElements = sortBy(this.query('//md:IDPSSODescriptor/md:SingleSignOnService'), (singleSignOnServiceElement) => {
+        const indexAttribute = find(singleSignOnServiceElement.attributes, { name: 'index' });
+
+        if (indexAttribute) {
+          return indexAttribute.value;
+        }
+
+        return 0;
+      });
+
+      // Find the specified authentication binding, if not available default to the first binding in the list
+      const singleSignOnServiceElement = find(singleSignOnServiceElements, (element) => {
+        return find(element.attributes, {
+          value: `urn:oasis:names:tc:SAML:2.0:bindings:${this.options.authnRequestBinding}`
+        });
+      }) || singleSignOnServiceElements[0];
+
+      // Return the location
+      return find(singleSignOnServiceElement.attributes, { name: 'Location' }).value;
     } catch (e) {
       if (this.options.throwExceptions) throw e;
     }
@@ -45,7 +74,26 @@ class MetadataReader {
 
   get logoutUrl() {
     try {
-      return this.query('//md:IDPSSODescriptor/md:SingleLogoutService[@Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"]/@Location')[0].value;
+      // Get all of the SingleLogoutService elements in the XML, sort them by the index (if provided)
+      const singleLogoutServiceElements = sortBy(this.query('//md:IDPSSODescriptor/md:SingleLogoutService'), (singleLogoutServiceElement) => {
+        const indexAttribute = find(singleLogoutServiceElement.attributes, { name: 'index' });
+
+        if (indexAttribute) {
+          return indexAttribute.value;
+        }
+
+        return 0;
+      });
+
+      // Find the specified authentication binding, if not available default to the first binding in the list
+      const singleLogoutServiceElement = find(singleLogoutServiceElements, (element) => {
+        return find(element.attributes, {
+          value: `urn:oasis:names:tc:SAML:2.0:bindings:${this.options.authnRequestBinding}`
+        });
+      }) || singleLogoutServiceElements[0];
+
+      // Return the location
+      return find(singleLogoutServiceElement.attributes, { name: 'Location' }).value;
     } catch (e) {
       if (this.options.throwExceptions) throw e;
     }
@@ -84,7 +132,7 @@ class MetadataReader {
       if (this.options.throwExceptions) throw e;
     }
   }
-  
+
   get claimSchema() {
     try {
       return this.query('//md:IDPSSODescriptor/claim:Attribute/@Name')
@@ -92,8 +140,8 @@ class MetadataReader {
           try {
             const name = node.value;
             const description = this.query(`//md:IDPSSODescriptor/claim:Attribute[@Name="${name}"]/@FriendlyName`)[0].value;
-            const camelCase = camel(description);
-            claims[node.value] = { name, description, camelCase };
+            const camelized = camelCase(description);
+            claims[node.value] = { name, description, camelCase: camelized };
           } catch (e) {
             if (this.options.throwExceptions) throw e;
           }

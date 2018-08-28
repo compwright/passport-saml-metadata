@@ -19,11 +19,11 @@ describe('MetadataReader', () => {
     });
 
     it('identityProviderUrl', () => {
-      assert.equal(config.identityProviderUrl, 'https://adfs.server.url/adfs/ls/');
+      assert.equal(config.identityProviderUrl, 'https://adfs.server.url/adfs/ls/Redirect');
     });
 
     it('logoutUrl', () => {
-      assert.equal(config.logoutUrl, 'https://adfs.server.url/adfs/ls/');
+      assert.equal(config.logoutUrl, 'https://adfs.server.url/adfs/ls/Redirect');
     });
 
     it('identifierFormat', () => {
@@ -40,6 +40,38 @@ describe('MetadataReader', () => {
 
     it('claimSchema', () => {
       assert.deepEqual(config.claimSchema, claimSchema);
+    });
+  });
+
+  describe('supports alternate authnRequestBinding HTTP-POST', () => {
+    let config;
+
+    before(() => {
+      config = new MetadataReader(metadata, { authnRequestBinding: 'HTTP-POST' });
+    });
+
+    it('identityProviderUrl', () => {
+      assert.equal(config.identityProviderUrl, 'https://adfs.server.url/adfs/ls/POST');
+    });
+
+    it('logoutUrl', () => {
+      assert.equal(config.logoutUrl, 'https://adfs.server.url/adfs/ls/POST');
+    });
+  });
+
+  describe('supports alternate authnRequestBinding HTTP-Artifact', () => {
+    let config;
+
+    before(() => {
+      config = new MetadataReader(metadata, { authnRequestBinding: 'HTTP-Artifact' });
+    });
+
+    it('identityProviderUrl', () => {
+      assert.equal(config.identityProviderUrl, 'https://adfs.server.url/adfs/ls/Artifact');
+    });
+
+    it('logoutUrl', () => {
+      assert.equal(config.logoutUrl, 'https://adfs.server.url/adfs/ls/Artifact');
     });
   });
 });
