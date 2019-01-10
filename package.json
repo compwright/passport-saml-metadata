@@ -34,7 +34,7 @@
     "npm": ">= 3"
   },
   "dependencies": {
-    "core-js": "^2.5.5",
+    "core-js": "^2.6.2",
     "debug": "^4.0.0",
     "lodash": "^4.17.10",
     "passport-saml": "^0.35.0",
