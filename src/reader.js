@@ -113,7 +113,7 @@ class MetadataReader {
 
   get encryptionCerts() {
     try {
-      return this.query('//md:IDPSSODescriptor/md:KeyDescriptor[@use="encryption"]/sig:KeyInfo/sig:X509Data/sig:X509Certificate')
+      return this.query('//md:IDPSSODescriptor/md:KeyDescriptor[@use="encryption" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate')
         .map((node) => node.firstChild.data);
     } catch (e) {
       if (this.options.throwExceptions) {
@@ -138,7 +138,7 @@ class MetadataReader {
 
   get signingCerts() {
     try {
-      return this.query('//md:IDPSSODescriptor/md:KeyDescriptor[@use="signing"]/sig:KeyInfo/sig:X509Data/sig:X509Certificate')
+      return this.query('//md:IDPSSODescriptor/md:KeyDescriptor[@use="signing" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate')
         .map((node) => node.firstChild.data);
     } catch (e) {
       if (this.options.throwExceptions) {

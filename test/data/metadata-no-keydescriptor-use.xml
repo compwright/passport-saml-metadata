@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="_46a4ff39-ad96-499d-91d9-040588865218" entityID="http://adfs.server.url/adfs/services/trust">
+  <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <KeyDescriptor>
+      <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+        <X509Data>
+          <X509Certificate>MIIC4jCCAcqgAwIBAgIQXYcAQ3jZkL9Jk9d7fx+xBjANBgkqhkiG9w0BAQsFADAtMSswKQYDVQQDEyJBREZTIEVuY3J5cHRpb24gLSBzdHMudW5pbGV2ZXIuY29tMB4XDTE0MDEzMDIzMzE1OVoXDTE1MDEzMDIzMzE1OVowLTErMCkGA1UEAxMiQURGUyBFbmNyeXB0aW9uIC0gc3RzLnVuaWxldmVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK+mqNP12dt1or2EpIpjHDwoC9Erkso3vDAwJ5vpHI7wRaTTnieiI6rtujQDDINNky98TdM7oD4JO3peaZHFuHeIsol8Gpqw9PnA7RA9mpeJ1irCp8DtSQdTcfKBLQ+YbMWSvFF4Z6xaP2BMggkB15H/+FD31BUSyBD3bLbeOlS/1loqtfyHJCYkGXc8wKLNbLItT1wku63X4YjpOOOEUh+jGoVCXYwkOhScmji/7MhdV9woqyxi5F/rmCrOIJHgqNBa4cwb/1+GSrYHNUPBLanXB+zS6hmAu3ceG9IaWDcxXqBISo0mrI80SuobLlEbk9N2JO2WDOLssMkj0/wH27MCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAG04bVFpr0QNDVIFyHcuCbVFMj1ZryYT9U12mwSgkzYjaIeXIFC0UzoGK1YcsNDuFil1LUtgjak1nKNcc50LOtTKDrimRgD6OcUScMLxyogte46E1clvRYvGLiawtvFx9fM9nGyRmybKHxbmLmCXYBEgietahoGrw5ohWQov1hjIRJ4evPvUx9fqi7V13rEvL0s+J2JhbmZIkecWagn+Dno0bvWOkVmPt2A+JB5Yqu5K6wZlBMNYvKyyaKu8TwuVrWZYm+3DJazg3yycLkJDkxpEGnj+exZ8j7e0Jhcfhk1UeqJ/e/8fwcZ3IostF93+Nc2mMJHmFKfLnFDJDYtZQbw==</X509Certificate>
+        </X509Data>
+      </KeyInfo>
+    </KeyDescriptor>
+    <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adfs.server.url/adfs/ls/Redirect" />
+    <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs.server.url/adfs/ls/POST" />
+    <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://adfs.server.url/adfs/ls/Artifact" />
+    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adfs.server.url/adfs/ls/Redirect" />
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs.server.url/adfs/ls/POST" />
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://adfs.server.url/adfs/ls/Artifact" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="E-Mail Address" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Given Name" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Name" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="UPN" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.xmlsoap.org/claims/CommonName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Common Name" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.xmlsoap.org/claims/EmailAddress" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="AD FS 1.x E-Mail Address" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.xmlsoap.org/claims/Group" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Group" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.xmlsoap.org/claims/UPN" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="AD FS 1.x UPN" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Role" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Surname" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="PPID" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Name ID" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Authentication time stamp" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Authentication method" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Deny only group SID" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Deny only primary SID" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Deny only primary group SID" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Group SID" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Primary group SID" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Primary SID" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Windows account name" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/EmployeeID" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="EmployeeID" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="https://adfs.server.url/claims/myorganizationPeopleSoftEmployeeID" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="myorganizationPeopleSoftEmployeeID" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://extranet.myorganizationservices.com/claims/Type" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Type" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://extranet.myorganizationservices.com/claims/OrganisationName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="OrganisationName" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://extranet.myorganizationservices.com/claims/OrganisationID" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="OrganisationID" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/Designation" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Designation" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/Department" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Department" />
+    <Attribute xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/username" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="username" />
+  </IDPSSODescriptor>
+  <ContactPerson contactType="support" />
+</EntityDescriptor>
