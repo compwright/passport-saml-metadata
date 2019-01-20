@@ -38,7 +38,7 @@
     "debug": "^4.0.0",
     "lodash": "^4.17.10",
     "passport-saml": "^0.35.0",
-    "superagent": "^3.8.2",
+    "superagent": "^4.0.0",
     "xmldom": "^0.1.27",
     "xpath": "0.0.27"
   },
