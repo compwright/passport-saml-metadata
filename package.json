@@ -43,7 +43,7 @@
     "xpath": "0.0.27"
   },
   "devDependencies": {
-    "eslint": "^5.12.1",
+    "eslint": "^6.0.0",
     "mocha": "^5.1.1"
   }
 }
