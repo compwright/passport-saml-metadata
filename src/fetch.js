@@ -1,53 +1,60 @@
 const assert = require('assert');
-const request = require('superagent');
+const axios = require('axios');
 const debug = require('debug')('passport-saml-metadata');
 
 const defaults = {
+  client: axios,
+  responseType: 'text',
   timeout: 2000,
   backupStore: new Map()
 };
 
-module.exports = (config = {}) => {
-  const { url, timeout, backupStore } = Object.assign({}, defaults, config);
+module.exports = async function(config = {}) {
+  const {
+    client,
+    url,
+    backupStore,
+    ...params
+  } = Object.assign({}, defaults, config);
 
   assert.ok(url, 'url is required');
   assert.ok(backupStore, 'backupStore is required');
   assert.equal(typeof backupStore.get, 'function', 'backupStore must have a get(key) function');
   assert.equal(typeof backupStore.set, 'function', 'backupStore must have a set(key, value) function');
 
-  debug('Loading metadata', url, timeout, backupStore);
+  debug('Loading metadata', url, params.timeout, backupStore);
 
-  return request.get(url)
-    .timeout(timeout)
-    .buffer(true)
-    .then((res) => {
-      debug('Metadata loaded', res.text.length);
-      backupStore.set(url, res.text);
-      return res.text;
-    })
-    .catch((err) => {
-      let error = err;
+  try {
+    const res = await client.get(url, params);
+    debug('Metadata loaded', res.headers['content-length']);
+    backupStore.set(url, res.data); // Save in backup store
+    return res.data;
+  } catch (err) {
+    let error;
+    if (err.response) {
+      error = new Error(err.response.data);
+      error.status = err.response.status;
+    } else if (err.request) {
+      error = new Error('Error during request, no response');
+    } else {
+      error = err;
+    }
 
-      // Superagent emits errors with error.response instead of error.message
-      if (err.response) {
-        error = err.response.error || new Error(err.response.body.message);
-        error.status = err.response.status;
+    debug('Metadata request failed, attempting backup store', error);
+
+    try {
+      // Try from backup store
+      const data = await Promise.resolve(backupStore.get(url));
+      if (data) {
+        debug('Metadata loaded from backupStore', data.length);
+        return data;
+      } else {
+        debug('Backup store was empty');
+        throw error;
       }
-
-      debug('Metadata request failed, attempting backup store', err);
-      return Promise.resolve(backupStore.get(url))
-        .then((data) => {
-          if (!data) {
-            debug('Backup store was empty');
-            return Promise.reject(error);
-          }
-
-          debug('Metadata loaded from backupStore', data.length);
-          return data;
-        })
-        .catch((err) => {
-          debug('Backup store request error', err);
-          return Promise.reject(error);
-        });
-    });
+    } catch(err) {
+      debug('Backup store request error', err);
+      throw error;
+    }
+  }
 };
