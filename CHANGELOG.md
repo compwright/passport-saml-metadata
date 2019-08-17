@@ -1,5 +1,18 @@
 # Change Log
 
+## [v2.1.0](https://github.com/compwright/passport-saml-metadata/tree/v2.1.0) (2019-08-17)
+[Full Changelog](https://github.com/compwright/passport-saml-metadata/compare/v2.0.1...v2.1.0)
+
+**Closed issues:**
+
+- Adding option for adding a CA [\#17](https://github.com/compwright/passport-saml-metadata/issues/17)
+- fetch dosn't support self signed certificate [\#16](https://github.com/compwright/passport-saml-metadata/issues/16)
+- reader.claimSchema dosn't find any claims in my metadata.xml [\#15](https://github.com/compwright/passport-saml-metadata/issues/15)
+
+**Merged pull requests:**
+
+- Make fetch\(\) configurable [\#23](https://github.com/compwright/passport-saml-metadata/pull/23) ([compwright](https://github.com/compwright))
+
 ## [v2.0.1](https://github.com/compwright/passport-saml-metadata/tree/v2.0.1) (2019-08-17)
 [Full Changelog](https://github.com/compwright/passport-saml-metadata/compare/v2.0.0...v2.0.1)
 
@@ -24,7 +37,6 @@
 - Handle KeyDescriptor without a use attribute [\#12](https://github.com/compwright/passport-saml-metadata/pull/12) ([esvinson](https://github.com/esvinson))
 - Update passport-saml to the latest version 🚀 [\#11](https://github.com/compwright/passport-saml-metadata/pull/11) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 - Update superagent to the latest version 🚀 [\#10](https://github.com/compwright/passport-saml-metadata/pull/10) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
-- toPassportConfig: use entryPoint for passport-saml [\#1](https://github.com/compwright/passport-saml-metadata/pull/1) ([leachiM2k](https://github.com/leachiM2k))
 
 ## [v1.5.2](https://github.com/compwright/passport-saml-metadata/tree/v1.5.2) (2018-09-11)
 [Full Changelog](https://github.com/compwright/passport-saml-metadata/compare/v1.5.1...v1.5.2)
@@ -66,6 +78,7 @@
 **Merged pull requests:**
 
 - Updating Dependencies \(\#2\) [\#3](https://github.com/compwright/passport-saml-metadata/pull/3) ([TigerC10](https://github.com/TigerC10))
+- toPassportConfig: use entryPoint for passport-saml [\#1](https://github.com/compwright/passport-saml-metadata/pull/1) ([leachiM2k](https://github.com/leachiM2k))
 
 ## [v1.3.0](https://github.com/compwright/passport-saml-metadata/tree/v1.3.0) (2018-02-05)
 [Full Changelog](https://github.com/compwright/passport-saml-metadata/compare/v1.2.1...v1.3.0)
