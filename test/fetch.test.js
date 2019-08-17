@@ -10,13 +10,13 @@ const metadata = fs.readFileSync(path.join(__dirname, 'data', 'metadata.xml')).t
 
 describe('fetch()', () => {
   it('loads', () => {
-    assert.equal(typeof fetch, 'function');
+    assert.strictEqual(typeof fetch, 'function');
   });
 
   it('fetches metadata XML from URL', (done) => {
     fetch({ url, timeout: 2000, backupStore })
       .then((xml) => {
-        assert.equal(xml, metadata);
+        assert.strictEqual(xml, metadata);
         assert.ok(backupStore.has(url));
         done();
       })
@@ -26,7 +26,7 @@ describe('fetch()', () => {
   it('fetches metadata XML from backupStore', (done) => {
     fetch({ url, timeout: 10, backupStore })
       .then((xml) => {
-        assert.equal(xml, metadata);
+        assert.strictEqual(xml, metadata);
         done();
       })
       .catch(done);

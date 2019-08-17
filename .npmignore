@@ -1,5 +1,8 @@
-test
+.nyc_cache/
+.nyc_output/
+coverage/
+test/
 .editorconfig
-.eslintrc.json
+.gitignore
 .npmignore
 .travis.yml
