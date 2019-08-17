@@ -1,3 +1,5 @@
 test
 .editorconfig
 .eslintrc.json
+.npmignore
+.travis.yml
