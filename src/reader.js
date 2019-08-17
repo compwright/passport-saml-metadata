@@ -1,13 +1,11 @@
 const assert = require('assert');
+const debug = require('debug')('passport-saml-metadata');
+const camelCase = require('lodash/camelCase');
+const merge = require('lodash/merge');
+const find = require('lodash/find');
+const sortBy = require('lodash/sortBy');
 const { DOMParser } = require('xmldom');
 const xpath = require('xpath');
-const {
-  camelCase,
-  merge,
-  find,
-  sortBy
-} = require('lodash');
-const debug = require('debug')('passport-saml-metadata');
 
 const defaultOptions = {
   authnRequestBinding: 'HTTP-Redirect',

@@ -30,20 +30,19 @@
     "pretest": "eslint src/. test/. --config .eslintrc.json"
   },
   "engines": {
-    "node": ">= 6.10",
+    "node": ">= 8",
     "npm": ">= 3"
   },
   "dependencies": {
-    "core-js": "^2.6.2",
     "debug": "^4.1.1",
-    "lodash": "^4.17.11",
-    "passport-saml": "^1.0.0",
-    "superagent": "^5.0.2",
+    "lodash": "^4.17.15",
+    "passport-saml": "^1.1.0",
+    "superagent": "^5.1.0",
     "xmldom": "^0.1.27",
     "xpath": "0.0.27"
   },
   "devDependencies": {
-    "eslint": "^5.12.1",
-    "mocha": "^6.0.0"
+    "eslint": "^6.1.0",
+    "mocha": "^6.2.0"
   }
 }

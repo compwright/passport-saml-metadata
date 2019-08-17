@@ -1,4 +1,3 @@
-const entries = require('core-js/library/fn/object/entries');
 const debug = require('debug')('passport-saml-metadata');
 
 function toPassportConfig(reader = {}) {
@@ -20,7 +19,7 @@ function toPassportConfig(reader = {}) {
 function claimsToCamelCase(claims, claimSchema) {
   const obj = {};
 
-  for (let [key, value] of entries(claims)) {
+  for (let [key, value] of Object.entries(claims)) {
     try {
       obj[claimSchema[key].camelCase] = value;
     } catch (e) {
