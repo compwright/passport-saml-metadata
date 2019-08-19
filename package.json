@@ -70,6 +70,6 @@
     "eslint": "^6.1.0",
     "mocha": "^6.2.0",
     "nyc": "^14.1.1",
-    "semistandard": "^13.0.1"
+    "semistandard": "^14.0.0"
   }
 }
