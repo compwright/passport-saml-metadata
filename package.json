@@ -62,7 +62,7 @@
     "debug": "^4.1.1",
     "lodash": "^4.17.15",
     "passport-saml": "^1.1.0",
-    "xmldom": "^0.1.27",
+    "xmldom": "^0.2.0",
     "xpath": "0.0.27"
   },
   "devDependencies": {
