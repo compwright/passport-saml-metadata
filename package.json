@@ -61,15 +61,15 @@
     "axios": "^0.19.0",
     "debug": "^4.1.1",
     "lodash": "^4.17.15",
-    "passport-saml": "^1.1.0",
-    "xmldom": "^0.2.0",
+    "passport-saml": "^1.2.0",
+    "xmldom": "^0.2.1",
     "xpath": "0.0.27"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.17.0",
-    "eslint": "^6.1.0",
-    "mocha": "^6.2.0",
+    "eslint": "^6.8.0",
+    "mocha": "^6.2.2",
     "nyc": "^15.0.0",
-    "semistandard": "^14.0.0"
+    "semistandard": "^14.2.0"
   }
 }
