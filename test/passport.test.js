@@ -4,7 +4,7 @@ const { toPassportConfig, claimsToCamelCase } = require('../src/passport');
 const reader = {
   identityProviderUrl: 'a',
   logoutUrl: 'b',
-  signingCerts: ['c'],
+  signingCerts: ['c', 'c2'],
   identifierFormat: 'd',
   claimSchema: require('./data/claim-schema.json')
 };
@@ -19,7 +19,17 @@ describe('passport helpers', () => {
       entryPoint: 'a',
       identityProviderUrl: 'a',
       logoutUrl: 'b',
-      cert: 'c',
+      cert: 'c2',
+      identifierFormat: 'd'
+    });
+  });
+
+  it('toPassportConfig() with multiple cert support', () => {
+    assert.deepStrictEqual(toPassportConfig(reader, { multipleCerts: true }), {
+      entryPoint: 'a',
+      identityProviderUrl: 'a',
+      logoutUrl: 'b',
+      cert: ['c', 'c2'],
       identifierFormat: 'd'
     });
   });
