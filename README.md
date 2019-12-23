@@ -66,8 +66,8 @@ Returns a promise which resolves, if successful, to an instance of `MetadataRead
 
 Transforms metadata extracts for use in Passport strategy configuration. The following strategies are currently supported:
 
-* [passport-saml](http://npmjs.org/packages/passport-saml)
-* [passport-wsfed-saml2](http://npmjs.org/packages/passport-wsfed-saml2)
+* [passport-saml](http://npmjs.org/package/passport-saml)
+* [passport-wsfed-saml2](http://npmjs.org/package/passport-wsfed-saml2)
 
 When setting the `multipleCerts` options to true, an array of signing certificates are passed to the passport config instead of assuming the last certificate is the most recent one.
 
