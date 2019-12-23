@@ -1,13 +1,13 @@
 const debug = require('debug')('passport-saml-metadata');
 
-function toPassportConfig(reader = {}) {
+function toPassportConfig(reader = {}, options = { multipleCerts: false }) {
   const { identifierFormat, identityProviderUrl, logoutUrl, signingCerts } = reader;
 
   const config = {
     identityProviderUrl,
     entryPoint: identityProviderUrl,
     logoutUrl,
-    cert: [].concat(signingCerts).pop(), // assumes the last cert is the most recent one
+    cert: (!options.multipleCerts) ? [].concat(signingCerts).pop() : signingCerts,
     identifierFormat
   };
 
