@@ -124,7 +124,7 @@ class MetadataReader {
 
   get encryptionCert() {
     try {
-      return this.signingCerts[0].replace(/(\r\n|\n|\r|\s)/gm, '');
+      return this.encryptionCerts[0].replace(/(\r\n|\n|\r|\s)/gm, '');
     } catch (e) {
       if (this.options.throwExceptions) {
         throw e;
