@@ -112,7 +112,7 @@ class MetadataReader {
   get encryptionCerts() {
     try {
       return this.query('//md:IDPSSODescriptor/md:KeyDescriptor[@use="encryption" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate')
-        .map((node) => node.firstChild.data.replace(/(\r\n|\n|\r|\s)/gm, ''));
+        .map((node) => node.firstChild.data.replace(/[\r\n\t\s]/gm, ''));
     } catch (e) {
       if (this.options.throwExceptions) {
         throw e;
@@ -124,7 +124,7 @@ class MetadataReader {
 
   get encryptionCert() {
     try {
-      return this.encryptionCerts[0].replace(/(\r\n|\n|\r|\s)/gm, '');
+      return this.encryptionCerts[0].replace(/[\r\n\t\s]/gm, '');
     } catch (e) {
       if (this.options.throwExceptions) {
         throw e;
@@ -137,7 +137,7 @@ class MetadataReader {
   get signingCerts() {
     try {
       return this.query('//md:IDPSSODescriptor/md:KeyDescriptor[@use="signing" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate')
-        .map((node) => node.firstChild.data.replace(/(\r\n|\n|\r|\s)/gm, ''));
+        .map((node) => node.firstChild.data.replace(/[\r\n\t\s]/gm, ''));
     } catch (e) {
       if (this.options.throwExceptions) {
         throw e;
@@ -149,7 +149,7 @@ class MetadataReader {
 
   get signingCert() {
     try {
-      return this.signingCerts[0].replace(/(\r\n|\n|\r|\s)/gm, '');
+      return this.signingCerts[0].replace(/[\r\n\t\s]/gm, '');
     } catch (e) {
       if (this.options.throwExceptions) {
         throw e;

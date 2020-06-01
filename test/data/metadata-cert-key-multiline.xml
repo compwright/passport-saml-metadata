@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<EntityDescriptor entityID="adfs.server.url" xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+    <IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <KeyDescriptor use="signing">
+            <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIGNzCCBR+gAwIBAgIRAIgwRqGmpAjEdu+QhhQH4Z8wDQYJKoZIhvcNAQELBQAwbTESMBAGCgmS
+MRIwEAYKCZImiZPyLGQBGRYCZXAxFjAUBgNVBAMTDUVQU2lnbiBTU0wgQ0EwHhcNMTgwOTI3MTMw
+ODMzWhcNMjAwOTI3MTMwODM0WjCBnTESMBAGCgmSJomT8ixkARkWAmV1MRUwEwYKCZImiZPyLGQB
+GRYFdW5pb24xFDASBgoJkiaJk/IsZAEZFgRwYXJsMRIwEAYKCZImiZPyLGQBGRYCZXAxGzAZBgNV
+BAsTEkRHIElURUMvT1BFUkFUSU9OUzEpMCcGA1UEAxMgV2ViU1NPIEZlZGVyYXRpb24gcHJlLXBy
+b2R1Y3Rpb24wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCLrlA2nl5WQdqVxy3khLAD
+67Wg1cyHPojXmdkn406m+pdPHCdE8HArJWKFzWozPpHaTfMg705tP9/Xar3PY5oOhK0dF40NTvG1
+ACcZrNGRDZ+5Et5GxEb2h/CFQTs9nZtNszkh9EpmAXEcZ+sD9J9FDVmFMgHnvcQDe08mm7PwxF2d
+N87Hx5ljF3Ek/4D9Tv6NEF5BNYKnG7CJSr9bVchJE5Z7YKEbofI71PKJhaoncbMRNHsFd17BJB0d
+I/5VDNPrVGi08PzW33W3hkc0JTB17g2EDW+NV2aPfw6tAezB7cJAKLuix4m/fBB1sagZu6h9+4je
+xUL7+7U7iSuk0wgPAgMBAAGjggKfMIICmzATBgNVHSUEDDAKBggrBgEFBQcDATAOBgNVHQ8BAf8E
+BAMCA6gwEQYJYIZIAYb4QgEBBAQDAgZAMIGbBggrBgEFBQcBAQSBjjCBizBMBggrBgEFBQcwAoZA
+aHR0cDovL2Vwc2lnbi5ldXJvcGFybC5ldXJvcGEuZXUvY2VydC9FUFNpZ24tQXBwbGljYXRpb25z
+LUNBLmNydDA7BggrBgEFBQcwAYYvaHR0cDovL29jc3AuZXBzaWduLmV1cm9wYXJsLmV1cm9wYS5l
+L2Vwc2lnbi5lcC5wYXJsLnVuaW9uLmV1L2NybC9FUFNpZ24tU1NMLUNBLmNybDArBgNVHREEJDAi
+giBXZWJTU08gRmVkZXJhdGlvbiBwcmUtcHJvZHVjdGlvbjAdBgNVHQ4EFgQUcEPmGNSthUQVEp1q
+TJQWb7d0y6UwDQYJKoZIhvcNAQELBQADggEBAMD5y0odP/JBFWsVg9sQUw23iWRAlq/VY710go+E
+RB3AH4HP1LWSyjnhJzWpfvSF4zQAaDvcqyc1/9ayS+Q4CldQ34gEmclZnZO0Vbvd+8NZUxgqW/Fy
+jzPLkpi3lEpeNp7q+K7/+snU8EWSc+6P7Ei0Mjj1LncKzK1j/ROn4B0PbHZFdoGbvtbJ9pxWtx3H
+0jg3eLVj8RYDs9qVJ2HmJV7rWpVIHsYT+8+41TsePSoHBp5AP/tZlwUWZFzFimbgLh8TcRvIq/F2
+7cGlKQDYdQDOXU43qtO4IgWn1QV1bQthzojmNfTdYF1MrTFeIpCcGogbS90a6r3nFLkgFm+9r9U=
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </KeyDescriptor>
+        <KeyDescriptor use="encryption">
+            <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIGNzCCBR+gAwIBAgIRAIgwRqGmpAjEdu+QhhQH4Z8wDQYJKoZIhvcNAQELBQAwbTESMBAGCgmS
+MRIwEAYKCZImiZPyLGQBGRYCZXAxFjAUBgNVBAMTDUVQU2lnbiBTU0wgQ0EwHhcNMTgwOTI3MTMw
+ODMzWhcNMjAwOTI3MTMwODM0WjCBnTESMBAGCgmSJomT8ixkARkWAmV1MRUwEwYKCZImiZPyLGQB
+GRYFdW5pb24xFDASBgoJkiaJk/IsZAEZFgRwYXJsMRIwEAYKCZImiZPyLGQBGRYCZXAxGzAZBgNV
+BAsTEkRHIElURUMvT1BFUkFUSU9OUzEpMCcGA1UEAxMgV2ViU1NPIEZlZGVyYXRpb24gcHJlLXBy
+b2R1Y3Rpb24wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCLrlA2nl5WQdqVxy3khLAD
+67Wg1cyHPojXmdkn406m+pdPHCdE8HArJWKFzWozPpHaTfMg705tP9/Xar3PY5oOhK0dF40NTvG1
+ACcZrNGRDZ+5Et5GxEb2h/CFQTs9nZtNszkh9EpmAXEcZ+sD9J9FDVmFMgHnvcQDe08mm7PwxF2d
+N87Hx5ljF3Ek/4D9Tv6NEF5BNYKnG7CJSr9bVchJE5Z7YKEbofI71PKJhaoncbMRNHsFd17BJB0d
+I/5VDNPrVGi08PzW33W3hkc0JTB17g2EDW+NV2aPfw6tAezB7cJAKLuix4m/fBB1sagZu6h9+4je
+xUL7+7U7iSuk0wgPAgMBAAGjggKfMIICmzATBgNVHSUEDDAKBggrBgEFBQcDATAOBgNVHQ8BAf8E
+BAMCA6gwEQYJYIZIAYb4QgEBBAQDAgZAMIGbBggrBgEFBQcBAQSBjjCBizBMBggrBgEFBQcwAoZA
+aHR0cDovL2Vwc2lnbi5ldXJvcGFybC5ldXJvcGEuZXUvY2VydC9FUFNpZ24tQXBwbGljYXRpb25z
+LUNBLmNydDA7BggrBgEFBQcwAYYvaHR0cDovL29jc3AuZXBzaWduLmV1cm9wYXJsLmV1cm9wYS5l
+L2Vwc2lnbi5lcC5wYXJsLnVuaW9uLmV1L2NybC9FUFNpZ24tU1NMLUNBLmNybDArBgNVHREEJDAi
+giBXZWJTU08gRmVkZXJhdGlvbiBwcmUtcHJvZHVjdGlvbjAdBgNVHQ4EFgQUcEPmGNSthUQVEp1q
+TJQWb7d0y6UwDQYJKoZIhvcNAQELBQADggEBAMD5y0odP/JBFWsVg9sQUw23iWRAlq/VY710go+E
+RB3AH4HP1LWSyjnhJzWpfvSF4zQAaDvcqyc1/9ayS+Q4CldQ34gEmclZnZO0Vbvd+8NZUxgqW/Fy
+jzPLkpi3lEpeNp7q+K7/+snU8EWSc+6P7Ei0Mjj1LncKzK1j/ROn4B0PbHZFdoGbvtbJ9pxWtx3H
+0jg3eLVj8RYDs9qVJ2HmJV7rWpVIHsYT+8+41TsePSoHBp5AP/tZlwUWZFzFimbgLh8TcRvIq/F2
+7cGlKQDYdQDOXU43qtO4IgWn1QV1bQthzojmNfTdYF1MrTFeIpCcGogbS90a6r3nFLkgFm+9r9U=
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+            <EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc">
+                <xenc:KeySize xmlns:xenc="http://www.w3.org/2001/04/xmlenc#">128</xenc:KeySize>
+            </EncryptionMethod>
+        </KeyDescriptor>
+        <ArtifactResolutionService index="0" isDefault="true" Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://adfs.server.url/am/ArtifactResolver/metaAlias/idp-proxy-single"/>
+        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+        <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</NameIDFormat>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adfs.server.url/am/SSORedirect/metaAlias/idp-proxy-single"/>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs.server.url/am/SSOPOST/metaAlias/idp-proxy-single"/>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://adfs.server.url/am/SSOSoap/metaAlias/idp-proxy-single"/>
+    </IDPSSODescriptor>
+    <SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <KeyDescriptor use="signing">
+            <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIGNzCCBR+gAwIBAgIRAIgwRqGmpAjEdu+QhhQH4Z8wDQYJKoZIhvcNAQELBQAwbTESMBAGCgmS
+MRIwEAYKCZImiZPyLGQBGRYCZXAxFjAUBgNVBAMTDUVQU2lnbiBTU0wgQ0EwHhcNMTgwOTI3MTMw
+ODMzWhcNMjAwOTI3MTMwODM0WjCBnTESMBAGCgmSJomT8ixkARkWAmV1MRUwEwYKCZImiZPyLGQB
+GRYFdW5pb24xFDASBgoJkiaJk/IsZAEZFgRwYXJsMRIwEAYKCZImiZPyLGQBGRYCZXAxGzAZBgNV
+BAsTEkRHIElURUMvT1BFUkFUSU9OUzEpMCcGA1UEAxMgV2ViU1NPIEZlZGVyYXRpb24gcHJlLXBy
+b2R1Y3Rpb24wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCLrlA2nl5WQdqVxy3khLAD
+67Wg1cyHPojXmdkn406m+pdPHCdE8HArJWKFzWozPpHaTfMg705tP9/Xar3PY5oOhK0dF40NTvG1
+ACcZrNGRDZ+5Et5GxEb2h/CFQTs9nZtNszkh9EpmAXEcZ+sD9J9FDVmFMgHnvcQDe08mm7PwxF2d
+N87Hx5ljF3Ek/4D9Tv6NEF5BNYKnG7CJSr9bVchJE5Z7YKEbofI71PKJhaoncbMRNHsFd17BJB0d
+I/5VDNPrVGi08PzW33W3hkc0JTB17g2EDW+NV2aPfw6tAezB7cJAKLuix4m/fBB1sagZu6h9+4je
+xUL7+7U7iSuk0wgPAgMBAAGjggKfMIICmzATBgNVHSUEDDAKBggrBgEFBQcDATAOBgNVHQ8BAf8E
+BAMCA6gwEQYJYIZIAYb4QgEBBAQDAgZAMIGbBggrBgEFBQcBAQSBjjCBizBMBggrBgEFBQcwAoZA
+aHR0cDovL2Vwc2lnbi5ldXJvcGFybC5ldXJvcGEuZXUvY2VydC9FUFNpZ24tQXBwbGljYXRpb25z
+LUNBLmNydDA7BggrBgEFBQcwAYYvaHR0cDovL29jc3AuZXBzaWduLmV1cm9wYXJsLmV1cm9wYS5l
+L2Vwc2lnbi5lcC5wYXJsLnVuaW9uLmV1L2NybC9FUFNpZ24tU1NMLUNBLmNybDArBgNVHREEJDAi
+giBXZWJTU08gRmVkZXJhdGlvbiBwcmUtcHJvZHVjdGlvbjAdBgNVHQ4EFgQUcEPmGNSthUQVEp1q
+TJQWb7d0y6UwDQYJKoZIhvcNAQELBQADggEBAMD5y0odP/JBFWsVg9sQUw23iWRAlq/VY710go+E
+RB3AH4HP1LWSyjnhJzWpfvSF4zQAaDvcqyc1/9ayS+Q4CldQ34gEmclZnZO0Vbvd+8NZUxgqW/Fy
+jzPLkpi3lEpeNp7q+K7/+snU8EWSc+6P7Ei0Mjj1LncKzK1j/ROn4B0PbHZFdoGbvtbJ9pxWtx3H
+0jg3eLVj8RYDs9qVJ2HmJV7rWpVIHsYT+8+41TsePSoHBp5AP/tZlwUWZFzFimbgLh8TcRvIq/F2
+7cGlKQDYdQDOXU43qtO4IgWn1QV1bQthzojmNfTdYF1MrTFeIpCcGogbS90a6r3nFLkgFm+9r9U=
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </KeyDescriptor>
+        <KeyDescriptor use="encryption">
+            <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIGNzCCBR+gAwIBAgIRAIgwRqGmpAjEdu+QhhQH4Z8wDQYJKoZIhvcNAQELBQAwbTESMBAGCgmS
+MRIwEAYKCZImiZPyLGQBGRYCZXAxFjAUBgNVBAMTDUVQU2lnbiBTU0wgQ0EwHhcNMTgwOTI3MTMw
+ODMzWhcNMjAwOTI3MTMwODM0WjCBnTESMBAGCgmSJomT8ixkARkWAmV1MRUwEwYKCZImiZPyLGQB
+GRYFdW5pb24xFDASBgoJkiaJk/IsZAEZFgRwYXJsMRIwEAYKCZImiZPyLGQBGRYCZXAxGzAZBgNV
+BAsTEkRHIElURUMvT1BFUkFUSU9OUzEpMCcGA1UEAxMgV2ViU1NPIEZlZGVyYXRpb24gcHJlLXBy
+b2R1Y3Rpb24wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCLrlA2nl5WQdqVxy3khLAD
+67Wg1cyHPojXmdkn406m+pdPHCdE8HArJWKFzWozPpHaTfMg705tP9/Xar3PY5oOhK0dF40NTvG1
+ACcZrNGRDZ+5Et5GxEb2h/CFQTs9nZtNszkh9EpmAXEcZ+sD9J9FDVmFMgHnvcQDe08mm7PwxF2d
+N87Hx5ljF3Ek/4D9Tv6NEF5BNYKnG7CJSr9bVchJE5Z7YKEbofI71PKJhaoncbMRNHsFd17BJB0d
+I/5VDNPrVGi08PzW33W3hkc0JTB17g2EDW+NV2aPfw6tAezB7cJAKLuix4m/fBB1sagZu6h9+4je
+xUL7+7U7iSuk0wgPAgMBAAGjggKfMIICmzATBgNVHSUEDDAKBggrBgEFBQcDATAOBgNVHQ8BAf8E
+BAMCA6gwEQYJYIZIAYb4QgEBBAQDAgZAMIGbBggrBgEFBQcBAQSBjjCBizBMBggrBgEFBQcwAoZA
+aHR0cDovL2Vwc2lnbi5ldXJvcGFybC5ldXJvcGEuZXUvY2VydC9FUFNpZ24tQXBwbGljYXRpb25z
+LUNBLmNydDA7BggrBgEFBQcwAYYvaHR0cDovL29jc3AuZXBzaWduLmV1cm9wYXJsLmV1cm9wYS5l
+L2Vwc2lnbi5lcC5wYXJsLnVuaW9uLmV1L2NybC9FUFNpZ24tU1NMLUNBLmNybDArBgNVHREEJDAi
+giBXZWJTU08gRmVkZXJhdGlvbiBwcmUtcHJvZHVjdGlvbjAdBgNVHQ4EFgQUcEPmGNSthUQVEp1q
+TJQWb7d0y6UwDQYJKoZIhvcNAQELBQADggEBAMD5y0odP/JBFWsVg9sQUw23iWRAlq/VY710go+E
+RB3AH4HP1LWSyjnhJzWpfvSF4zQAaDvcqyc1/9ayS+Q4CldQ34gEmclZnZO0Vbvd+8NZUxgqW/Fy
+jzPLkpi3lEpeNp7q+K7/+snU8EWSc+6P7Ei0Mjj1LncKzK1j/ROn4B0PbHZFdoGbvtbJ9pxWtx3H
+0jg3eLVj8RYDs9qVJ2HmJV7rWpVIHsYT+8+41TsePSoHBp5AP/tZlwUWZFzFimbgLh8TcRvIq/F2
+7cGlKQDYdQDOXU43qtO4IgWn1QV1bQthzojmNfTdYF1MrTFeIpCcGogbS90a6r3nFLkgFm+9r9U=
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+            <EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc">
+                <xenc:KeySize xmlns:xenc="http://www.w3.org/2001/04/xmlenc#">128</xenc:KeySize>
+            </EncryptionMethod>
+        </KeyDescriptor>
+        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adfs.server.url/am/SPSloRedirect/metaAlias/proxysp-single" ResponseLocation="https://adfs.server.url/am/SPSloRedirect/metaAlias/proxysp-single"/>
+        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs.server.url/am/SPSloPOST/metaAlias/proxysp-single" ResponseLocation="https://adfs.server.url/am/SPSloPOST/metaAlias/proxysp-single"/>
+        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://adfs.server.url/am/SPSloSoap/metaAlias/proxysp-single"/>
+        <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adfs.server.url/am/SPMniRedirect/metaAlias/proxysp-single" ResponseLocation="https://adfs.server.url/am/SPMniRedirect/metaAlias/proxysp-single"/>
+        <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs.server.url/am/SPMniPOST/metaAlias/proxysp-single" ResponseLocation="https://adfs.server.url/am/SPMniPOST/metaAlias/proxysp-single"/>
+        <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://adfs.server.url/am/SPMniSoap/metaAlias/proxysp-single" ResponseLocation="https://adfs.server.url/am/SPMniSoap/metaAlias/proxysp-single"/>
+        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+        <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</NameIDFormat>
+        <AssertionConsumerService index="0" isDefault="true" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://adfs.server.url/am/Consumer/metaAlias/proxysp-single"/>
+        <AssertionConsumerService index="1" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs.server.url/am/Consumer/metaAlias/proxysp-single"/>
+        <AssertionConsumerService index="2" Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://adfs.server.url/am/Consumer/ECP/metaAlias/proxysp-single"/>
+    </SPSSODescriptor>
+</EntityDescriptor>
+
+
