@@ -57,18 +57,18 @@
     "node": ">= 10"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "debug": "^4.1.1",
-    "lodash": "^4.17.15",
-    "passport-saml": "^1.3.3",
-    "xmldom": "^0.3.0",
-    "xpath": "0.0.27"
+    "axios": "^0.21.0",
+    "debug": "^4.3.1",
+    "lodash": "^4.17.20",
+    "passport-saml": "^2.0.2",
+    "xmldom": "^0.4.0",
+    "xpath": "0.0.32"
   },
   "devDependencies": {
-    "axios-mock-adapter": "^1.18.1",
-    "eslint": "^7.1.0",
-    "mocha": "^7.2.0",
+    "axios-mock-adapter": "^1.19.0",
+    "eslint": "^7.15.0",
+    "mocha": "^8.2.1",
     "nyc": "^15.1.0",
-    "semistandard": "^14.2.0"
+    "semistandard": "^16.0.0"
   }
 }
