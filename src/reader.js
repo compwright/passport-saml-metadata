@@ -13,7 +13,7 @@ const defaultOptions = {
 };
 
 class MetadataReader {
-  constructor(metadata, options = defaultOptions) {
+  constructor (metadata, options = defaultOptions) {
     assert.equal(typeof metadata, 'string', 'metadata must be an XML string');
     const doc = new DOMParser().parseFromString(metadata);
 
@@ -35,7 +35,7 @@ class MetadataReader {
     };
   }
 
-  get identifierFormat() {
+  get identifierFormat () {
     try {
       return this.query('//md:IDPSSODescriptor/md:NameIDFormat/text()')[0].nodeValue;
     } catch (e) {
@@ -47,7 +47,7 @@ class MetadataReader {
     }
   }
 
-  get identityProviderUrl() {
+  get identityProviderUrl () {
     try {
       // Get all of the SingleSignOnService elements in the XML, sort them by the index (if provided)
       const singleSignOnServiceElements = sortBy(this.query('//md:IDPSSODescriptor/md:SingleSignOnService'), (singleSignOnServiceElement) => {
@@ -78,7 +78,7 @@ class MetadataReader {
     }
   }
 
-  get logoutUrl() {
+  get logoutUrl () {
     try {
       // Get all of the SingleLogoutService elements in the XML, sort them by the index (if provided)
       const singleLogoutServiceElements = sortBy(this.query('//md:IDPSSODescriptor/md:SingleLogoutService'), (singleLogoutServiceElement) => {
@@ -109,7 +109,7 @@ class MetadataReader {
     }
   }
 
-  get encryptionCerts() {
+  get encryptionCerts () {
     try {
       return this.query('//md:IDPSSODescriptor/md:KeyDescriptor[@use="encryption" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate')
         .map((node) => node.firstChild.data.replace(/[\r\n\t\s]/gm, ''));
@@ -122,7 +122,7 @@ class MetadataReader {
     }
   }
 
-  get encryptionCert() {
+  get encryptionCert () {
     try {
       return this.encryptionCerts[0].replace(/[\r\n\t\s]/gm, '');
     } catch (e) {
@@ -134,7 +134,7 @@ class MetadataReader {
     }
   }
 
-  get signingCerts() {
+  get signingCerts () {
     try {
       return this.query('//md:IDPSSODescriptor/md:KeyDescriptor[@use="signing" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate')
         .map((node) => node.firstChild.data.replace(/[\r\n\t\s]/gm, ''));
@@ -147,7 +147,7 @@ class MetadataReader {
     }
   }
 
-  get signingCert() {
+  get signingCert () {
     try {
       return this.signingCerts[0].replace(/[\r\n\t\s]/gm, '');
     } catch (e) {
@@ -159,7 +159,7 @@ class MetadataReader {
     }
   }
 
-  get claimSchema() {
+  get claimSchema () {
     try {
       return this.query('//md:IDPSSODescriptor/claim:Attribute/@Name')
         .reduce((claims, node) => {

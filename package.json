@@ -32,8 +32,8 @@
     "release:minor": "npm version minor && npm publish",
     "release:major": "npm version major && npm publish",
     "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -am \"Updating changelog\"",
-    "lint": "semistandard lib/*.js lib/**/*.js test/*.js test/**/*.js --fix",
-    "mocha": "mocha --opts mocha.opts",
+    "lint": "semistandard src/*.js src/**/*.js test/*.js test/**/*.js --fix",
+    "mocha": "mocha --recursive --timeout 15000 --exit",
     "coverage": "nyc npm run mocha",
     "test": "npm run lint && npm run coverage"
   },
@@ -54,8 +54,7 @@
     ]
   },
   "engines": {
-    "node": ">= 8",
-    "npm": ">= 3"
+    "node": ">= 10"
   },
   "dependencies": {
     "axios": "^0.19.2",

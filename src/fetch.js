@@ -9,7 +9,7 @@ const defaults = {
   backupStore: new Map()
 };
 
-module.exports = async function(config = {}) {
+module.exports = async function (config = {}) {
   const {
     client,
     url,
@@ -52,7 +52,7 @@ module.exports = async function(config = {}) {
         debug('Backup store was empty');
         throw error;
       }
-    } catch(err) {
+    } catch (err) {
       debug('Backup store request error', err);
       throw error;
     }

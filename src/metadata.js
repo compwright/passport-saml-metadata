@@ -1,12 +1,12 @@
 const assert = require('assert');
 const SAML = require('passport-saml').SAML;
 
-function configureMetadataRoute(app, config = {}) {
-  assert.equal(typeof config, 'object', 'config must be an object');
+function configureMetadataRoute (app, config = {}) {
+  assert.strictEqual(typeof config, 'object', 'config must be an object');
   assert.ok(config.issuer, 'config.issuer is required');
   assert.ok(config.callbackUrl, 'config.callbackUrl is required');
 
-  app.get('/FederationMetadata/2007-06/FederationMetadata.xml', function(req, res) {
+  app.get('/FederationMetadata/2007-06/FederationMetadata.xml', function (req, res) {
     const saml = new SAML({
       issuer: config.issuer,
       callbackUrl: config.callbackUrl,
@@ -17,6 +17,6 @@ function configureMetadataRoute(app, config = {}) {
   });
 }
 
-module.exports = (config) => function() {
+module.exports = (config) => function () {
   configureMetadataRoute(this, config);
 };

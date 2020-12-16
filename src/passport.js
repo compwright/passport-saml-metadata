@@ -1,6 +1,6 @@
 const debug = require('debug')('passport-saml-metadata');
 
-function toPassportConfig(reader = {}, options = { multipleCerts: false }) {
+function toPassportConfig (reader = {}, options = { multipleCerts: false }) {
   const { identifierFormat, identityProviderUrl, logoutUrl, signingCerts } = reader;
 
   const config = {
@@ -16,10 +16,10 @@ function toPassportConfig(reader = {}, options = { multipleCerts: false }) {
   return config;
 }
 
-function claimsToCamelCase(claims, claimSchema) {
+function claimsToCamelCase (claims, claimSchema) {
   const obj = {};
 
-  for (let [key, value] of Object.entries(claims)) {
+  for (const [key, value] of Object.entries(claims)) {
     try {
       obj[claimSchema[key].camelCase] = value;
     } catch (e) {
