@@ -1,5 +1,9 @@
 # Changelog
 
+## [v2.4.1](https://github.com/compwright/passport-saml-metadata/tree/v2.4.1) (2021-03-10)
+
+[Full Changelog](https://github.com/compwright/passport-saml-metadata/compare/v2.4.0...v2.4.1)
+
 ## [v2.4.0](https://github.com/compwright/passport-saml-metadata/tree/v2.4.0) (2020-12-16)
 
 [Full Changelog](https://github.com/compwright/passport-saml-metadata/compare/v2.3.0...v2.4.0)
