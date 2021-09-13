@@ -4,7 +4,7 @@ const camelCase = require('lodash/camelCase');
 const merge = require('lodash/merge');
 const find = require('lodash/find');
 const sortBy = require('lodash/sortBy');
-const { DOMParser } = require('xmldom');
+const { DOMParser } = require('@xmldom/xmldom');
 const xpath = require('xpath');
 
 const defaultOptions = {
