@@ -1,5 +1,22 @@
 # Changelog
 
+## [Unreleased](https://github.com/compwright/passport-saml-metadata/tree/HEAD)
+
+[Full Changelog](https://github.com/compwright/passport-saml-metadata/compare/v2.5.0...HEAD)
+
+**Merged pull requests:**
+
+- update dependencies and fix vulnerabilities [\#34](https://github.com/compwright/passport-saml-metadata/pull/34) ([rafaelmaeuer](https://github.com/rafaelmaeuer))
+
+## [v2.5.0](https://github.com/compwright/passport-saml-metadata/tree/v2.5.0) (2021-09-13)
+
+[Full Changelog](https://github.com/compwright/passport-saml-metadata/compare/v2.4.1...v2.5.0)
+
+**Closed issues:**
+
+- Update passport-saml to v3.1.0 fixes CVE-2021-39171 [\#33](https://github.com/compwright/passport-saml-metadata/issues/33)
+- Dependency to xmldom lib version which has security issues [\#32](https://github.com/compwright/passport-saml-metadata/issues/32)
+
 ## [v2.4.1](https://github.com/compwright/passport-saml-metadata/tree/v2.4.1) (2021-03-10)
 
 [Full Changelog](https://github.com/compwright/passport-saml-metadata/compare/v2.4.0...v2.4.1)
