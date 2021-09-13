@@ -1,6 +1,6 @@
 {
   "name": "passport-saml-metadata",
-  "version": "2.4.1",
+  "version": "2.5.0",
   "description": "SAML2 metadata loader",
   "author": {
     "name": "Jonathon Hill",
