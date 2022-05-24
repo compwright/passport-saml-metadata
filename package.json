@@ -8,7 +8,28 @@
   },
   "contributors": [
     {
-      "name": "Ian Cervantez"
+      "name": "Michael Rotmanov",
+      "url": "http://www.leachim2k.de"
+    },
+    {
+      "name": "Ian Cervantez",
+      "url": "https://github.com/TigerC10"
+    },
+    {
+      "name": "Mardari Igor",
+      "url": "https://7code.ro"
+    },
+    {
+      "name": "Eric Vinson",
+      "url": "https://github.com/esvinson"
+    },
+    {
+      "name": "Rafael Maeuer",
+      "url": "https://rafaelmaeuer.de"
+    },
+    {
+      "name": "Barry Morrison",
+      "url": "http://www.barrymorrison.com"
     }
   ],
   "license": "MIT",
@@ -54,11 +75,11 @@
     ]
   },
   "engines": {
-    "node": ">= 10"
+    "node": ">= 14"
   },
   "dependencies": {
-    "@xmldom/xmldom": "^0.7.4",
-    "axios": "^0.21.4",
+    "@xmldom/xmldom": "^0.8.2",
+    "axios": "^0.27.2",
     "debug": "^4.3.2",
     "lodash": "^4.17.20",
     "passport-saml": "^3.1.0",
