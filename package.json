@@ -52,7 +52,7 @@
     ]
   },
   "engines": {
-    "node": ">= 14"
+    "node": ">= 16"
   },
   "dependencies": {
     "@xmldom/xmldom": "^0.8.3",
