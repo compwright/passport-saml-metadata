@@ -51,33 +51,20 @@
       "mocha"
     ]
   },
-  "nyc": {
-    "cache": true,
-    "cacheDir": ".nyc_cache",
-    "include": [
-      "src/**/*.js"
-    ],
-    "reporter": [
-      "lcov",
-      "text"
-    ]
-  },
   "engines": {
     "node": ">= 14"
   },
   "dependencies": {
-    "@xmldom/xmldom": "^0.8.2",
-    "axios": "^0.27.2",
+    "@xmldom/xmldom": "^0.8.3",
+    "axios": "^1.1.3",
     "debug": "^4.3.2",
     "lodash": "^4.17.20",
-    "passport-saml": "^3.1.0",
+    "passport-saml": "^3.2.3",
     "xpath": "0.0.32"
   },
   "devDependencies": {
-    "axios-mock-adapter": "^1.19.0",
-    "eslint": "*",
-    "mocha": "*",
-    "nyc": "*",
-    "semistandard": "*"
+    "axios-mock-adapter": "^1.21.2",
+    "mocha": "latest",
+    "semistandard": "latest"
   }
 }
