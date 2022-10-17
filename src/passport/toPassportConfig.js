@@ -1,4 +1,6 @@
-const debug = require('debug')('passport-saml-metadata')
+import Debug from 'debug'
+
+const debug = new Debug('passport-saml-metadata')
 
 function toPassportConfig (reader = {}, options = { multipleCerts: false }) {
   const { identifierFormat, identityProviderUrl, logoutUrl, signingCerts } = reader
@@ -16,21 +18,4 @@ function toPassportConfig (reader = {}, options = { multipleCerts: false }) {
   return config
 }
 
-function claimsToCamelCase (claims, claimSchema) {
-  const obj = {}
-
-  for (const [key, value] of Object.entries(claims)) {
-    try {
-      obj[claimSchema[key].camelCase] = value
-    } catch (e) {
-      debug(`Error while translating claim ${key}`, e)
-    }
-  }
-
-  return obj
-}
-
-module.exports = {
-  toPassportConfig,
-  claimsToCamelCase
-}
+export default toPassportConfig
