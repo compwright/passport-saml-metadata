@@ -65,6 +65,7 @@
   "devDependencies": {
     "axios-mock-adapter": "^1.21.2",
     "jest": "latest",
-    "standard": "latest"
+    "standard": "latest",
+    "standard-version": "latest"
   }
 }
