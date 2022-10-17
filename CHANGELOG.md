@@ -1,5 +1,11 @@
 # Changelog
 
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [2.6.1](https://github.com/compwright/passport-saml-metadata/compare/v2.6.0...v2.6.1) (2022-10-17)
+
+# Changelog
+
 ## [Unreleased](https://github.com/compwright/passport-saml-metadata/tree/HEAD)
 
 [Full Changelog](https://github.com/compwright/passport-saml-metadata/compare/v2.5.0...HEAD)
