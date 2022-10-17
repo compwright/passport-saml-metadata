@@ -1,5 +1,5 @@
-const assert = require('assert');
-const { toPassportConfig, claimsToCamelCase } = require('../src/passport');
+const assert = require('assert')
+const { toPassportConfig, claimsToCamelCase } = require('../src/passport')
 
 const reader = {
   identityProviderUrl: 'a',
@@ -7,11 +7,11 @@ const reader = {
   signingCerts: ['c', 'c2'],
   identifierFormat: 'd',
   claimSchema: require('./data/claim-schema.json')
-};
+}
 
 const claims = {
   'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn': 'some-user@some-company.com'
-};
+}
 
 describe('passport helpers', () => {
   it('toPassportConfig()', () => {
@@ -21,8 +21,8 @@ describe('passport helpers', () => {
       logoutUrl: 'b',
       cert: 'c2',
       identifierFormat: 'd'
-    });
-  });
+    })
+  })
 
   it('toPassportConfig() with multiple cert support', () => {
     assert.deepStrictEqual(toPassportConfig(reader, { multipleCerts: true }), {
@@ -31,12 +31,12 @@ describe('passport helpers', () => {
       logoutUrl: 'b',
       cert: ['c', 'c2'],
       identifierFormat: 'd'
-    });
-  });
+    })
+  })
 
   it('claimsToCamelCase()', () => {
     assert.deepStrictEqual(claimsToCamelCase(claims, reader.claimSchema), {
       upn: 'some-user@some-company.com'
-    });
-  });
-});
+    })
+  })
+})

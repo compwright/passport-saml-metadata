@@ -46,7 +46,7 @@
     "url": "https://github.com/compwright/passport-saml-metadata"
   },
   "main": "./src/",
-  "semistandard": {
+  "standard": {
     "env": [
       "mocha"
     ]
@@ -65,6 +65,6 @@
   "devDependencies": {
     "axios-mock-adapter": "^1.21.2",
     "mocha": "latest",
-    "semistandard": "latest"
+    "standard": "latest"
   }
 }
