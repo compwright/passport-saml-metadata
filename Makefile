@@ -8,7 +8,7 @@ lint:
 	node_modules/.bin/standard src/*.js src/**/*.js test/*.js test/**/*.js --fix
 
 test: lint
-	node_modules/.bin/mocha --recursive --timeout 15000 --exit
+	node_modules/.bin/jest
 
 release-pre: test
 	npm version prerelease && npm publish --tag pre

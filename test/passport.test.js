@@ -14,7 +14,7 @@ const claims = {
 }
 
 describe('passport helpers', () => {
-  it('toPassportConfig()', () => {
+  test('toPassportConfig()', () => {
     assert.deepStrictEqual(toPassportConfig(reader), {
       entryPoint: 'a',
       identityProviderUrl: 'a',
@@ -24,7 +24,7 @@ describe('passport helpers', () => {
     })
   })
 
-  it('toPassportConfig() with multiple cert support', () => {
+  test('toPassportConfig() with multiple cert support', () => {
     assert.deepStrictEqual(toPassportConfig(reader, { multipleCerts: true }), {
       entryPoint: 'a',
       identityProviderUrl: 'a',
@@ -34,7 +34,7 @@ describe('passport helpers', () => {
     })
   })
 
-  it('claimsToCamelCase()', () => {
+  test('claimsToCamelCase()', () => {
     assert.deepStrictEqual(claimsToCamelCase(claims, reader.claimSchema), {
       upn: 'some-user@some-company.com'
     })

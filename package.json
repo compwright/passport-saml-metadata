@@ -48,7 +48,7 @@
   "main": "./src/",
   "standard": {
     "env": [
-      "mocha"
+      "jest"
     ]
   },
   "engines": {
@@ -64,7 +64,7 @@
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.21.2",
-    "mocha": "latest",
+    "jest": "latest",
     "standard": "latest"
   }
 }

@@ -18,11 +18,11 @@ describe('fetch()', () => {
     axiosMock.reset()
   })
 
-  it('loads', () => {
+  test('loads', () => {
     assert.strictEqual(typeof fetch, 'function')
   })
 
-  it('fetches metadata XML from URL', (done) => {
+  test('fetches metadata XML from URL', (done) => {
     axiosMock.onGet(url).reply(200, metadata, {
       'content-length': metadata.length
     })
@@ -36,7 +36,7 @@ describe('fetch()', () => {
       .catch(done)
   })
 
-  it('fetches metadata XML from backupStore', (done) => {
+  test('fetches metadata XML from backupStore', (done) => {
     axiosMock.onGet(url).timeout()
     fetch({ url, timeout: 10, backupStore })
       .then((xml) => {
@@ -46,7 +46,7 @@ describe('fetch()', () => {
       .catch(done)
   })
 
-  it('fails with short timeout and empty backupStore', (done) => {
+  test('fails with short timeout and empty backupStore', (done) => {
     axiosMock.onGet(url).timeout()
     fetch({ url, timeout: 10, backupStore: new Map() })
       .then(() => {
@@ -58,7 +58,7 @@ describe('fetch()', () => {
       })
   })
 
-  it('accepts custom axios instances', (done) => {
+  test('accepts custom axios instances', (done) => {
     const client = axios.create()
     const myAxiosMock = new MockAdapter(client)
     myAxiosMock.onGet(url).reply(200, metadata, {
