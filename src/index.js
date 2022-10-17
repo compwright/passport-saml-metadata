@@ -1,12 +1,5 @@
-const fetch = require('./fetch')
-const MetadataReader = require('./reader')
-const { toPassportConfig, claimsToCamelCase } = require('./passport')
-const metadata = require('./metadata')
-
-module.exports = {
-  fetch: (config) => fetch(config).then((xml) => new MetadataReader(xml)),
-  MetadataReader,
-  toPassportConfig,
-  claimsToCamelCase,
-  metadata
-}
+export { default as fetch, fetchMetadata } from './fetch'
+export { default as MetadataReader } from './MetadataReader'
+export { default as claimsToCamelCase } from './passport/claimsToCamelCase'
+export { default as toPassportConfig } from './passport/toPassportConfig'
+export { default as metadata } from './metadata'

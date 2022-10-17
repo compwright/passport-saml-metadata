@@ -1,5 +1,5 @@
-const assert = require('assert')
-const SAML = require('passport-saml').SAML
+import assert from 'assert'
+import { SAML } from 'passport-saml'
 
 function configureMetadataRoute (app, config = {}) {
   assert.strictEqual(typeof config, 'object', 'config must be an object')
@@ -17,6 +17,6 @@ function configureMetadataRoute (app, config = {}) {
   })
 }
 
-module.exports = (config) => function () {
+export default (config) => function () {
   configureMetadataRoute(this, config)
 }

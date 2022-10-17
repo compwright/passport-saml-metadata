@@ -1,6 +1,10 @@
-const assert = require('assert')
-const axios = require('axios')
-const debug = require('debug')('passport-saml-metadata')
+import assert from 'assert'
+import axios from 'axios'
+import Debug from 'debug'
+
+import { MetadataReader } from './MetadataReader'
+
+const debug = new Debug('passport-saml-metadata')
 
 const defaults = {
   client: axios,
@@ -9,7 +13,7 @@ const defaults = {
   backupStore: new Map()
 }
 
-module.exports = async function (config = {}) {
+export async function fetchMetadata (config = {}) {
   const {
     client,
     url,
@@ -58,3 +62,6 @@ module.exports = async function (config = {}) {
     }
   }
 }
+
+export default (config) => fetchMetadata(config)
+  .then((xml) => new MetadataReader(xml))
