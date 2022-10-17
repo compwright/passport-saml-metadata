@@ -1,17 +1,18 @@
-const assert = require('assert')
-const axios = require('axios')
-const MockAdapter = require('axios-mock-adapter')
-const fs = require('fs')
-const path = require('path')
+import assert from 'assert'
+import axios from 'axios'
+import MockAdapter from 'axios-mock-adapter'
+import fs from 'fs'
+import { describe, test, beforeEach } from '@jest/globals'
+import path from 'path'
 
-const fetch = require('../src/fetch')
+import { fetchMetadata } from './fetch'
 
 const backupStore = new Map()
 
 const url = '/test/data/metadata.xml'
-const metadata = fs.readFileSync(path.join(__dirname, 'data', 'metadata.xml')).toString()
+const metadata = fs.readFileSync(path.resolve('resources', 'metadata.xml')).toString()
 
-describe('fetch()', () => {
+describe('fetchMetadata()', () => {
   const axiosMock = new MockAdapter(axios)
 
   beforeEach(() => {
@@ -19,7 +20,7 @@ describe('fetch()', () => {
   })
 
   test('loads', () => {
-    assert.strictEqual(typeof fetch, 'function')
+    assert.strictEqual(typeof fetchMetadata, 'function')
   })
 
   test('fetches metadata XML from URL', (done) => {
@@ -27,7 +28,7 @@ describe('fetch()', () => {
       'content-length': metadata.length
     })
 
-    fetch({ url, timeout: 2000, backupStore })
+    fetchMetadata({ url, timeout: 2000, backupStore })
       .then((xml) => {
         assert.strictEqual(xml, metadata)
         assert.ok(backupStore.has(url))
@@ -38,7 +39,7 @@ describe('fetch()', () => {
 
   test('fetches metadata XML from backupStore', (done) => {
     axiosMock.onGet(url).timeout()
-    fetch({ url, timeout: 10, backupStore })
+    fetchMetadata({ url, timeout: 10, backupStore })
       .then((xml) => {
         assert.strictEqual(xml, metadata)
         done()
@@ -48,7 +49,7 @@ describe('fetch()', () => {
 
   test('fails with short timeout and empty backupStore', (done) => {
     axiosMock.onGet(url).timeout()
-    fetch({ url, timeout: 10, backupStore: new Map() })
+    fetchMetadata({ url, timeout: 10, backupStore: new Map() })
       .then(() => {
         assert.fail('Request should not succeed')
       })
@@ -65,7 +66,7 @@ describe('fetch()', () => {
       'content-length': metadata.length
     })
 
-    fetch({ client, url, backupStore })
+    fetchMetadata({ client, url, backupStore })
       .then((xml) => {
         assert.strictEqual(xml, metadata)
         assert.ok(backupStore.has(url))

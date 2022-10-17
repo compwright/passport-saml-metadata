@@ -1,12 +1,13 @@
-const assert = require('assert')
-const fs = require('fs')
-const path = require('path')
-const MetadataReader = require('../src/reader')
+import assert from 'assert'
+import fs from 'fs'
+import { describe, test, beforeAll } from '@jest/globals'
+import path from 'path'
+import { MetadataReader } from './MetadataReader'
+import claimSchema from '../resources/claim-schema.json'
 
-const claimSchema = require('./data/claim-schema.json')
-const metadata = fs.readFileSync(path.join(__dirname, 'data', 'metadata.xml')).toString()
-const metadataNKDUA = fs.readFileSync(path.join(__dirname, 'data', 'metadata-no-keydescriptor-use.xml')).toString()
-const metadataCertKeyMultiline = fs.readFileSync(path.join(__dirname, 'data', 'metadata-cert-key-multiline.xml')).toString()
+const metadata = fs.readFileSync(path.resolve('resources', 'metadata.xml')).toString()
+const metadataNKDUA = fs.readFileSync(path.resolve('resources', 'metadata-no-keydescriptor-use.xml')).toString()
+const metadataCertKeyMultiline = fs.readFileSync(path.resolve('resources', 'metadata-cert-key-multiline.xml')).toString()
 
 describe('MetadataReader', () => {
   test('loads', () => {
