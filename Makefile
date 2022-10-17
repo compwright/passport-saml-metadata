@@ -3,8 +3,8 @@
 lint:
 	node_modules/.bin/standard src/*.js src/**/*.js test/*.js test/**/*.js --fix
 
-test: lint
+test:
 	node_modules/.bin/jest
 
-release: test
+release: lint test
 	node_modules/.bin/standard-version
