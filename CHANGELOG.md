@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/compwright/passport-saml-metadata/compare/v2.6.2...v3.0.0) (2022-12-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* Convert to es6 module
+* Drop support for Node.js v14
+
+### Features
+
+* add typescript type definitions ([2233a92](https://github.com/compwright/passport-saml-metadata/commit/2233a922c59775156e3689a9d20fa979afbc56f9))
+* Convert to es6 module ([fccec16](https://github.com/compwright/passport-saml-metadata/commit/fccec16655292b6e2997a76df2ae9f577913eace))
+* Drop support for Node.js v14 ([7a3e142](https://github.com/compwright/passport-saml-metadata/commit/7a3e142ea889ba0e5041ffa374aa0cab1d3b0f70))
+
+
+### Bug Fixes
+
+* replace deprecated passport-saml with @node-saml/node-saml ([4298588](https://github.com/compwright/passport-saml-metadata/commit/429858851fd52180697ba66e0e09f0c4c1a62fbe)), closes [#39](https://github.com/compwright/passport-saml-metadata/issues/39)
+
 ### [2.6.2](https://github.com/compwright/passport-saml-metadata/compare/v2.6.1...v2.6.2) (2022-10-17)
 
 ### [2.6.1](https://github.com/compwright/passport-saml-metadata/compare/v2.6.0...v2.6.1) (2022-10-17)
