@@ -7,7 +7,7 @@ import find from 'lodash/find';
 import sortBy from 'lodash/sortBy';
 import { DOMParser } from '@xmldom/xmldom';
 import xpath from 'xpath';
-import { SAML } from 'passport-saml';
+import { SAML } from '@node-saml/node-saml';
 
 var __accessCheck = (obj, member, msg) => {
   if (!member.has(obj))

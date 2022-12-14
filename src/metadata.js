@@ -1,5 +1,5 @@
 import assert from 'assert'
-import { SAML } from 'passport-saml'
+import { SAML } from '@node-saml/node-saml'
 
 function configureMetadataRoute (app, config = {}) {
   assert.strictEqual(typeof config, 'object', 'config must be an object')

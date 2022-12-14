@@ -9,7 +9,7 @@ const find = require('lodash/find');
 const sortBy = require('lodash/sortBy');
 const xmldom = require('@xmldom/xmldom');
 const xpath = require('xpath');
-const passportSaml = require('passport-saml');
+const nodeSaml = require('@node-saml/node-saml');
 
 var __accessCheck = (obj, member, msg) => {
   if (!member.has(obj))
@@ -274,7 +274,7 @@ function configureMetadataRoute(app, config = {}) {
   assert.ok(config.issuer, "config.issuer is required");
   assert.ok(config.callbackUrl, "config.callbackUrl is required");
   app.get("/FederationMetadata/2007-06/FederationMetadata.xml", function(req, res) {
-    const saml = new passportSaml.SAML({
+    const saml = new nodeSaml.SAML({
       issuer: config.issuer,
       callbackUrl: config.callbackUrl,
       logoutCallbackUrl: config.logoutCallbackUrl
