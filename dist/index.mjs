@@ -174,6 +174,17 @@ class MetadataReader {
       return {};
     }
   }
+  get entityId() {
+    try {
+      return __privateMethod(this, _query, query_fn).call(this, "//md:EntityDescriptor/@entityID")[0].value.replace(/[\r\n\t\s]/gm, "");
+    } catch (e) {
+      if (__privateGet(this, _options).throwExceptions) {
+        throw e;
+      } else {
+        return void 0;
+      }
+    }
+  }
 }
 _options = new WeakMap();
 _doc = new WeakMap();
