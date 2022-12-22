@@ -44,6 +44,10 @@ describe('MetadataReader', () => {
     test('claimSchema', () => {
       assert.deepStrictEqual(config.claimSchema, claimSchema)
     })
+
+    test('entityId', () => {
+      assert.deepStrictEqual(config.entityId, 'http://adfs.server.url/adfs/services/trust')
+    })
   })
 
   describe('handles no KeyDescriptor use attribute', () => {
