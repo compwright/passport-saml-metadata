@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/compwright/passport-saml-metadata/compare/v3.0.0...v3.1.0) (2022-12-22)
+
+
+### Features
+
+* add new entityId() method to MetadataReader ([#41](https://github.com/compwright/passport-saml-metadata/issues/41)) ([707f5e4](https://github.com/compwright/passport-saml-metadata/commit/707f5e48eb439bf3a8d0afe039a1c554ce3241c0)), closes [#40](https://github.com/compwright/passport-saml-metadata/issues/40)
+
+
+### Bug Fixes
+
+* upgrade dependencies ([d0f21a0](https://github.com/compwright/passport-saml-metadata/commit/d0f21a024864bb949e2f1711f16486fec1d2b172))
+
 ## [3.0.0](https://github.com/compwright/passport-saml-metadata/compare/v2.6.2...v3.0.0) (2022-12-14)
 
 
