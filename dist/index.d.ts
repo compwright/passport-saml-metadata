@@ -8,6 +8,7 @@ declare class MetadataReader {
     get signingCerts(): any;
     get signingCert(): any;
     get claimSchema(): any;
+    get entityId(): any;
     #private;
 }
 

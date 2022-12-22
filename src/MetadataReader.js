@@ -189,6 +189,18 @@ export class MetadataReader {
       return {}
     }
   }
+
+  get entityId () {
+    try {
+      return this.#query('//md:EntityDescriptor/@entityID')[0].value.replace(/[\r\n\t\s]/gm, '')
+    } catch (e) {
+      if (this.#options.throwExceptions) {
+        throw e
+      } else {
+        return undefined
+      }
+    }
+  }
 }
 
 export default MetadataReader
