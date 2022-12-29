@@ -70,17 +70,17 @@
     "dist"
   ],
   "dependencies": {
+    "@node-saml/node-saml": "^4.0.3",
     "@xmldom/xmldom": "^0.8.6",
     "axios": "^1.2.1",
     "debug": "^4.3.4",
     "lodash": "^4.17.21",
-    "@node-saml/node-saml": "^4.0.3",
     "xpath": "0.0.32"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.21.2",
     "jest": "latest",
-    "standard": "latest",
+    "standard": "^16.0.3",
     "standard-version": "latest",
     "unbuild": "latest"
   }
