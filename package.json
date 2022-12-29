@@ -4,7 +4,7 @@
   "description": "SAML2 metadata loader",
   "author": {
     "name": "Jonathon Hill",
-    "email": "jhill9693@gmail.com"
+    "email": "jonathon@compwright.com"
   },
   "contributors": [
     {
@@ -30,6 +30,14 @@
     {
       "name": "Barry Morrison",
       "url": "http://www.barrymorrison.com"
+    },
+    {
+      "name": "Oliver Lockwood",
+      "url": "http://www.oliverlockwood.com/index.html"
+    },
+    {
+      "name": "Sol Redfern",
+      "url": "https://github.com/Tsuesun"
     }
   ],
   "license": "MIT",
