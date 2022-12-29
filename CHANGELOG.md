@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/compwright/passport-saml-metadata/compare/v3.1.0...v3.1.1) (2022-12-29)
+
+
+### Bug Fixes
+
+* add check for undefined cert ([#38](https://github.com/compwright/passport-saml-metadata/issues/38)) ([2903836](https://github.com/compwright/passport-saml-metadata/commit/2903836742acfad8c4b29472a6e8cd167cafd117))
+* update insecure dependencies ([7876852](https://github.com/compwright/passport-saml-metadata/commit/7876852b1e3ff100687ebb1d1a22d8c5ff94d537))
+
 ## [3.1.0](https://github.com/compwright/passport-saml-metadata/compare/v3.0.0...v3.1.0) (2022-12-22)
 
 
