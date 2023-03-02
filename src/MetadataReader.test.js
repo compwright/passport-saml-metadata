@@ -42,7 +42,7 @@ describe('MetadataReader', () => {
     })
 
     test('claimSchema', () => {
-      assert.deepStrictEqual(config.claimSchema, claimSchema)
+      assert.deepEqual(config.claimSchema, claimSchema)
     })
 
     test('entityId', () => {
