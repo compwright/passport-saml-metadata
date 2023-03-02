@@ -1,10 +1,10 @@
 import assert from 'assert';
 import axios from 'axios';
 import Debug from 'debug';
-import camelCase from 'lodash/camelCase';
-import merge from 'lodash/merge';
-import find from 'lodash/find';
-import sortBy from 'lodash/sortBy';
+import camelCase from 'lodash/camelCase.js';
+import merge from 'lodash/merge.js';
+import find from 'lodash/find.js';
+import sortBy from 'lodash/sortBy.js';
 import { DOMParser } from '@xmldom/xmldom';
 import xpath from 'xpath';
 import { SAML } from '@node-saml/node-saml';
