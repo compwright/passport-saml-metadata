@@ -1,10 +1,10 @@
 import assert from 'assert';
 import axios from 'axios';
 import Debug from 'debug';
-import camelCase from 'lodash/camelCase';
-import merge from 'lodash/merge';
-import find from 'lodash/find';
-import sortBy from 'lodash/sortBy';
+import camelCase from 'lodash/camelCase.js';
+import merge from 'lodash/merge.js';
+import find from 'lodash/find.js';
+import sortBy from 'lodash/sortBy.js';
 import { DOMParser } from '@xmldom/xmldom';
 import xpath from 'xpath';
 import { SAML } from '@node-saml/node-saml';
@@ -110,7 +110,11 @@ class MetadataReader {
   }
   get encryptionCerts() {
     try {
-      return __privateMethod(this, _query, query_fn).call(this, '//md:IDPSSODescriptor/md:KeyDescriptor[@use="encryption" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate').map((node) => node.firstChild.data.replace(/[\r\n\t\s]/gm, ""));
+      const certs = __privateMethod(this, _query, query_fn).call(this, '//md:IDPSSODescriptor/md:KeyDescriptor[@use="encryption" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate');
+      if (!certs) {
+        throw new Error("No encryption certificate found");
+      }
+      return certs.map((node) => node.firstChild.data.replace(/[\r\n\t\s]/gm, ""));
     } catch (e) {
       if (__privateGet(this, _options).throwExceptions) {
         throw e;
@@ -121,7 +125,7 @@ class MetadataReader {
   }
   get encryptionCert() {
     try {
-      return this.encryptionCerts[0].replace(/[\r\n\t\s]/gm, "");
+      return this.encryptionCerts[0];
     } catch (e) {
       if (__privateGet(this, _options).throwExceptions) {
         throw e;
@@ -132,7 +136,11 @@ class MetadataReader {
   }
   get signingCerts() {
     try {
-      return __privateMethod(this, _query, query_fn).call(this, '//md:IDPSSODescriptor/md:KeyDescriptor[@use="signing" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate').map((node) => node.firstChild.data.replace(/[\r\n\t\s]/gm, ""));
+      const certs = __privateMethod(this, _query, query_fn).call(this, '//md:IDPSSODescriptor/md:KeyDescriptor[@use="signing" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate');
+      if (!certs) {
+        throw new Error("No signing certificate found");
+      }
+      return certs.map((node) => node.firstChild.data.replace(/[\r\n\t\s]/gm, ""));
     } catch (e) {
       if (__privateGet(this, _options).throwExceptions) {
         throw e;
@@ -143,7 +151,7 @@ class MetadataReader {
   }
   get signingCert() {
     try {
-      return this.signingCerts[0].replace(/[\r\n\t\s]/gm, "");
+      return this.signingCerts[0];
     } catch (e) {
       if (__privateGet(this, _options).throwExceptions) {
         throw e;
