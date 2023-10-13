@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/compwright/passport-saml-metadata/compare/v3.1.2...v3.2.0) (2023-10-13)
+
+
+### Features
+
+* make MetadataReader.query() public ([#45](https://github.com/compwright/passport-saml-metadata/issues/45)) ([3996537](https://github.com/compwright/passport-saml-metadata/commit/399653721432e2eaa29de6dfc125b653b5ee67e5))
+
 ### [3.1.2](https://github.com/compwright/passport-saml-metadata/compare/v3.1.1...v3.1.2) (2023-03-02)
 
 
