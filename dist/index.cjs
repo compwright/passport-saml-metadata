@@ -11,6 +11,17 @@ const xmldom = require('@xmldom/xmldom');
 const xpath = require('xpath');
 const nodeSaml = require('@node-saml/node-saml');
 
+function _interopDefaultCompat (e) { return e && typeof e === 'object' && 'default' in e ? e.default : e; }
+
+const assert__default = /*#__PURE__*/_interopDefaultCompat(assert);
+const axios__default = /*#__PURE__*/_interopDefaultCompat(axios);
+const Debug__default = /*#__PURE__*/_interopDefaultCompat(Debug);
+const camelCase__default = /*#__PURE__*/_interopDefaultCompat(camelCase);
+const merge__default = /*#__PURE__*/_interopDefaultCompat(merge);
+const find__default = /*#__PURE__*/_interopDefaultCompat(find);
+const sortBy__default = /*#__PURE__*/_interopDefaultCompat(sortBy);
+const xpath__default = /*#__PURE__*/_interopDefaultCompat(xpath);
+
 var __accessCheck = (obj, member, msg) => {
   if (!member.has(obj))
     throw TypeError("Cannot " + msg);
@@ -30,7 +41,7 @@ var __privateSet = (obj, member, value, setter) => {
   return value;
 };
 var _options, _doc, _select;
-const debug$3 = new Debug("passport-saml-metadata");
+const debug$3 = new Debug__default("passport-saml-metadata");
 class MetadataReader {
   constructor(metadata, options = {}) {
     __privateAdd(this, _options, {
@@ -39,14 +50,14 @@ class MetadataReader {
     });
     __privateAdd(this, _doc, void 0);
     __privateAdd(this, _select, void 0);
-    assert.equal(typeof metadata, "string", "metadata must be an XML string");
+    assert__default.equal(typeof metadata, "string", "metadata must be an XML string");
     __privateSet(this, _doc, new xmldom.DOMParser().parseFromString(metadata));
-    __privateSet(this, _select, xpath.useNamespaces({
+    __privateSet(this, _select, xpath__default.useNamespaces({
       md: "urn:oasis:names:tc:SAML:2.0:metadata",
       claim: "urn:oasis:names:tc:SAML:2.0:assertion",
       sig: "http://www.w3.org/2000/09/xmldsig#"
     }));
-    __privateSet(this, _options, merge(__privateGet(this, _options), options));
+    __privateSet(this, _options, merge__default(__privateGet(this, _options), options));
   }
   query(query) {
     try {
@@ -69,19 +80,19 @@ class MetadataReader {
   }
   get identityProviderUrl() {
     try {
-      const singleSignOnServiceElements = sortBy(this.query("//md:IDPSSODescriptor/md:SingleSignOnService"), (singleSignOnServiceElement2) => {
-        const indexAttribute = find(singleSignOnServiceElement2.attributes, { name: "index" });
+      const singleSignOnServiceElements = sortBy__default(this.query("//md:IDPSSODescriptor/md:SingleSignOnService"), (singleSignOnServiceElement2) => {
+        const indexAttribute = find__default(singleSignOnServiceElement2.attributes, { name: "index" });
         if (indexAttribute) {
           return indexAttribute.value;
         }
         return 0;
       });
-      const singleSignOnServiceElement = find(singleSignOnServiceElements, (element) => {
-        return find(element.attributes, {
+      const singleSignOnServiceElement = find__default(singleSignOnServiceElements, (element) => {
+        return find__default(element.attributes, {
           value: `urn:oasis:names:tc:SAML:2.0:bindings:${__privateGet(this, _options).authnRequestBinding}`
         });
       }) || singleSignOnServiceElements[0];
-      return find(singleSignOnServiceElement.attributes, { name: "Location" }).value;
+      return find__default(singleSignOnServiceElement.attributes, { name: "Location" }).value;
     } catch (e) {
       if (__privateGet(this, _options).throwExceptions) {
         throw e;
@@ -92,19 +103,19 @@ class MetadataReader {
   }
   get logoutUrl() {
     try {
-      const singleLogoutServiceElements = sortBy(this.query("//md:IDPSSODescriptor/md:SingleLogoutService"), (singleLogoutServiceElement2) => {
-        const indexAttribute = find(singleLogoutServiceElement2.attributes, { name: "index" });
+      const singleLogoutServiceElements = sortBy__default(this.query("//md:IDPSSODescriptor/md:SingleLogoutService"), (singleLogoutServiceElement2) => {
+        const indexAttribute = find__default(singleLogoutServiceElement2.attributes, { name: "index" });
         if (indexAttribute) {
           return indexAttribute.value;
         }
         return 0;
       });
-      const singleLogoutServiceElement = find(singleLogoutServiceElements, (element) => {
-        return find(element.attributes, {
+      const singleLogoutServiceElement = find__default(singleLogoutServiceElements, (element) => {
+        return find__default(element.attributes, {
           value: `urn:oasis:names:tc:SAML:2.0:bindings:${__privateGet(this, _options).authnRequestBinding}`
         });
       }) || singleLogoutServiceElements[0];
-      return find(singleLogoutServiceElement.attributes, { name: "Location" }).value;
+      return find__default(singleLogoutServiceElement.attributes, { name: "Location" }).value;
     } catch (e) {
       if (__privateGet(this, _options).throwExceptions) {
         throw e;
@@ -171,7 +182,7 @@ class MetadataReader {
         try {
           const name = node.value;
           const description = this.query(`//md:IDPSSODescriptor/claim:Attribute[@Name="${name}"]/@FriendlyName`)[0].value;
-          const camelized = camelCase(description);
+          const camelized = camelCase__default(description);
           claims[node.value] = { name, description, camelCase: camelized };
         } catch (e) {
           if (__privateGet(this, _options).throwExceptions) {
@@ -203,9 +214,9 @@ _options = new WeakMap();
 _doc = new WeakMap();
 _select = new WeakMap();
 
-const debug$2 = new Debug("passport-saml-metadata");
+const debug$2 = new Debug__default("passport-saml-metadata");
 const defaults = {
-  client: axios,
+  client: axios__default,
   responseType: "text",
   timeout: 2e3,
   backupStore: /* @__PURE__ */ new Map()
@@ -217,10 +228,10 @@ async function fetchMetadata(config = {}) {
     backupStore,
     ...params
   } = Object.assign({}, defaults, config);
-  assert.ok(url, "url is required");
-  assert.ok(backupStore, "backupStore is required");
-  assert.equal(typeof backupStore.get, "function", "backupStore must have a get(key) function");
-  assert.equal(typeof backupStore.set, "function", "backupStore must have a set(key, value) function");
+  assert__default.ok(url, "url is required");
+  assert__default.ok(backupStore, "backupStore is required");
+  assert__default.equal(typeof backupStore.get, "function", "backupStore must have a get(key) function");
+  assert__default.equal(typeof backupStore.set, "function", "backupStore must have a set(key, value) function");
   debug$2("Loading metadata", url, params.timeout, backupStore);
   try {
     const res = await client.get(url, params);
@@ -255,7 +266,7 @@ async function fetchMetadata(config = {}) {
 }
 const fetch = (config) => fetchMetadata(config).then((xml) => new MetadataReader(xml));
 
-const debug$1 = new Debug("passport-saml-metadata");
+const debug$1 = new Debug__default("passport-saml-metadata");
 function claimsToCamelCase(claims, claimSchema) {
   const obj = {};
   for (const [key, value] of Object.entries(claims)) {
@@ -268,7 +279,7 @@ function claimsToCamelCase(claims, claimSchema) {
   return obj;
 }
 
-const debug = new Debug("passport-saml-metadata");
+const debug = new Debug__default("passport-saml-metadata");
 function toPassportConfig(reader = {}, options = { multipleCerts: false }) {
   const { identifierFormat, identityProviderUrl, logoutUrl, signingCerts } = reader;
   const config = {
@@ -283,9 +294,9 @@ function toPassportConfig(reader = {}, options = { multipleCerts: false }) {
 }
 
 function configureMetadataRoute(app, config = {}) {
-  assert.strictEqual(typeof config, "object", "config must be an object");
-  assert.ok(config.issuer, "config.issuer is required");
-  assert.ok(config.callbackUrl, "config.callbackUrl is required");
+  assert__default.strictEqual(typeof config, "object", "config must be an object");
+  assert__default.ok(config.issuer, "config.issuer is required");
+  assert__default.ok(config.callbackUrl, "config.callbackUrl is required");
   app.get("/FederationMetadata/2007-06/FederationMetadata.xml", function(req, res) {
     const saml = new nodeSaml.SAML({
       issuer: config.issuer,

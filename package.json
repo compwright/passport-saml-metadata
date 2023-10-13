@@ -75,14 +75,14 @@
     "axios": "^1.2.1",
     "debug": "^4.3.4",
     "lodash": "^4.17.21",
-    "xpath": "0.0.32"
+    "xpath": "^0.0.33"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.21.2",
     "eslint": "^8.30.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-n": "^16.2.0",
     "eslint-plugin-promise": "^6.1.1",
     "jest": "latest",
     "standard-version": "latest",
