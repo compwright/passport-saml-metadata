@@ -29,15 +29,10 @@ var __privateSet = (obj, member, value, setter) => {
   setter ? setter.call(obj, value) : member.set(obj, value);
   return value;
 };
-var __privateMethod = (obj, member, method) => {
-  __accessCheck(obj, member, "access private method");
-  return method;
-};
-var _options, _doc, _select, _query, query_fn;
+var _options, _doc, _select;
 const debug$3 = new Debug("passport-saml-metadata");
 class MetadataReader {
   constructor(metadata, options = {}) {
-    __privateAdd(this, _query);
     __privateAdd(this, _options, {
       authnRequestBinding: "HTTP-Redirect",
       throwExceptions: false
@@ -53,9 +48,17 @@ class MetadataReader {
     }));
     __privateSet(this, _options, merge(__privateGet(this, _options), options));
   }
+  query(query) {
+    try {
+      return __privateGet(this, _select).call(this, query, __privateGet(this, _doc));
+    } catch (e) {
+      debug$3(`Could not read xpath query "${query}"`, e);
+      throw e;
+    }
+  }
   get identifierFormat() {
     try {
-      return __privateMethod(this, _query, query_fn).call(this, "//md:IDPSSODescriptor/md:NameIDFormat/text()")[0].nodeValue;
+      return this.query("//md:IDPSSODescriptor/md:NameIDFormat/text()")[0].nodeValue;
     } catch (e) {
       if (__privateGet(this, _options).throwExceptions) {
         throw e;
@@ -66,7 +69,7 @@ class MetadataReader {
   }
   get identityProviderUrl() {
     try {
-      const singleSignOnServiceElements = sortBy(__privateMethod(this, _query, query_fn).call(this, "//md:IDPSSODescriptor/md:SingleSignOnService"), (singleSignOnServiceElement2) => {
+      const singleSignOnServiceElements = sortBy(this.query("//md:IDPSSODescriptor/md:SingleSignOnService"), (singleSignOnServiceElement2) => {
         const indexAttribute = find(singleSignOnServiceElement2.attributes, { name: "index" });
         if (indexAttribute) {
           return indexAttribute.value;
@@ -89,7 +92,7 @@ class MetadataReader {
   }
   get logoutUrl() {
     try {
-      const singleLogoutServiceElements = sortBy(__privateMethod(this, _query, query_fn).call(this, "//md:IDPSSODescriptor/md:SingleLogoutService"), (singleLogoutServiceElement2) => {
+      const singleLogoutServiceElements = sortBy(this.query("//md:IDPSSODescriptor/md:SingleLogoutService"), (singleLogoutServiceElement2) => {
         const indexAttribute = find(singleLogoutServiceElement2.attributes, { name: "index" });
         if (indexAttribute) {
           return indexAttribute.value;
@@ -112,7 +115,7 @@ class MetadataReader {
   }
   get encryptionCerts() {
     try {
-      const certs = __privateMethod(this, _query, query_fn).call(this, '//md:IDPSSODescriptor/md:KeyDescriptor[@use="encryption" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate');
+      const certs = this.query('//md:IDPSSODescriptor/md:KeyDescriptor[@use="encryption" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate');
       if (!certs) {
         throw new Error("No encryption certificate found");
       }
@@ -138,7 +141,7 @@ class MetadataReader {
   }
   get signingCerts() {
     try {
-      const certs = __privateMethod(this, _query, query_fn).call(this, '//md:IDPSSODescriptor/md:KeyDescriptor[@use="signing" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate');
+      const certs = this.query('//md:IDPSSODescriptor/md:KeyDescriptor[@use="signing" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate');
       if (!certs) {
         throw new Error("No signing certificate found");
       }
@@ -164,10 +167,10 @@ class MetadataReader {
   }
   get claimSchema() {
     try {
-      return __privateMethod(this, _query, query_fn).call(this, "//md:IDPSSODescriptor/claim:Attribute/@Name").reduce((claims, node) => {
+      return this.query("//md:IDPSSODescriptor/claim:Attribute/@Name").reduce((claims, node) => {
         try {
           const name = node.value;
-          const description = __privateMethod(this, _query, query_fn).call(this, `//md:IDPSSODescriptor/claim:Attribute[@Name="${name}"]/@FriendlyName`)[0].value;
+          const description = this.query(`//md:IDPSSODescriptor/claim:Attribute[@Name="${name}"]/@FriendlyName`)[0].value;
           const camelized = camelCase(description);
           claims[node.value] = { name, description, camelCase: camelized };
         } catch (e) {
@@ -186,7 +189,7 @@ class MetadataReader {
   }
   get entityId() {
     try {
-      return __privateMethod(this, _query, query_fn).call(this, "//md:EntityDescriptor/@entityID")[0].value.replace(/[\r\n\t\s]/gm, "");
+      return this.query("//md:EntityDescriptor/@entityID")[0].value.replace(/[\r\n\t\s]/gm, "");
     } catch (e) {
       if (__privateGet(this, _options).throwExceptions) {
         throw e;
@@ -199,15 +202,6 @@ class MetadataReader {
 _options = new WeakMap();
 _doc = new WeakMap();
 _select = new WeakMap();
-_query = new WeakSet();
-query_fn = function(query) {
-  try {
-    return __privateGet(this, _select).call(this, query, __privateGet(this, _doc));
-  } catch (e) {
-    debug$3(`Could not read xpath query "${query}"`, e);
-    throw e;
-  }
-};
 
 const debug$2 = new Debug("passport-saml-metadata");
 const defaults = {

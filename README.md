@@ -114,6 +114,10 @@ Parses metadata XML and extracts the following properties:
 * `encryptionCert`
 * `claimSchema` - an object hash of claim identifiers that may be provided in the SAML assertion
 
+Methods:
+
+* `query(query)` - queries the `metadataXml` using XPath.
+
 ### metadata(app)(config = {})
 
 Returns a function which sets up an Express application route to generate the metadata XML file for your application at /FederationMetadata/2007-06/FederationMetadata.xml. ADFS servers may import the resulting file to set up the relying party trust.
