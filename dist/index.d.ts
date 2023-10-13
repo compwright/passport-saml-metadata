@@ -1,5 +1,6 @@
 declare class MetadataReader {
     constructor(metadata: any, options?: {});
+    query(query: any): any;
     get identifierFormat(): any;
     get identityProviderUrl(): any;
     get logoutUrl(): any;

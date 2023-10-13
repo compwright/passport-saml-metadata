@@ -33,7 +33,7 @@ export class MetadataReader {
     this.#options = merge(this.#options, options)
   }
 
-  #query (query) {
+  query (query) {
     try {
       return this.#select(query, this.#doc)
     } catch (e) {
@@ -44,7 +44,7 @@ export class MetadataReader {
 
   get identifierFormat () {
     try {
-      return this.#query('//md:IDPSSODescriptor/md:NameIDFormat/text()')[0].nodeValue
+      return this.query('//md:IDPSSODescriptor/md:NameIDFormat/text()')[0].nodeValue
     } catch (e) {
       if (this.#options.throwExceptions) {
         throw e
@@ -57,7 +57,7 @@ export class MetadataReader {
   get identityProviderUrl () {
     try {
       // Get all of the SingleSignOnService elements in the XML, sort them by the index (if provided)
-      const singleSignOnServiceElements = sortBy(this.#query('//md:IDPSSODescriptor/md:SingleSignOnService'), (singleSignOnServiceElement) => {
+      const singleSignOnServiceElements = sortBy(this.query('//md:IDPSSODescriptor/md:SingleSignOnService'), (singleSignOnServiceElement) => {
         const indexAttribute = find(singleSignOnServiceElement.attributes, { name: 'index' })
 
         if (indexAttribute) {
@@ -88,7 +88,7 @@ export class MetadataReader {
   get logoutUrl () {
     try {
       // Get all of the SingleLogoutService elements in the XML, sort them by the index (if provided)
-      const singleLogoutServiceElements = sortBy(this.#query('//md:IDPSSODescriptor/md:SingleLogoutService'), (singleLogoutServiceElement) => {
+      const singleLogoutServiceElements = sortBy(this.query('//md:IDPSSODescriptor/md:SingleLogoutService'), (singleLogoutServiceElement) => {
         const indexAttribute = find(singleLogoutServiceElement.attributes, { name: 'index' })
 
         if (indexAttribute) {
@@ -118,7 +118,7 @@ export class MetadataReader {
 
   get encryptionCerts () {
     try {
-      const certs = this.#query('//md:IDPSSODescriptor/md:KeyDescriptor[@use="encryption" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate')
+      const certs = this.query('//md:IDPSSODescriptor/md:KeyDescriptor[@use="encryption" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate')
       if (!certs) {
         throw new Error('No encryption certificate found')
       }
@@ -147,7 +147,7 @@ export class MetadataReader {
 
   get signingCerts () {
     try {
-      const certs = this.#query('//md:IDPSSODescriptor/md:KeyDescriptor[@use="signing" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate')
+      const certs = this.query('//md:IDPSSODescriptor/md:KeyDescriptor[@use="signing" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate')
       if (!certs) {
         throw new Error('No signing certificate found')
       }
@@ -176,11 +176,11 @@ export class MetadataReader {
 
   get claimSchema () {
     try {
-      return this.#query('//md:IDPSSODescriptor/claim:Attribute/@Name')
+      return this.query('//md:IDPSSODescriptor/claim:Attribute/@Name')
         .reduce((claims, node) => {
           try {
             const name = node.value
-            const description = this.#query(`//md:IDPSSODescriptor/claim:Attribute[@Name="${name}"]/@FriendlyName`)[0].value
+            const description = this.query(`//md:IDPSSODescriptor/claim:Attribute[@Name="${name}"]/@FriendlyName`)[0].value
             const camelized = camelCase(description)
             claims[node.value] = { name, description, camelCase: camelized }
           } catch (e) {
@@ -200,7 +200,7 @@ export class MetadataReader {
 
   get entityId () {
     try {
-      return this.#query('//md:EntityDescriptor/@entityID')[0].value.replace(/[\r\n\t\s]/gm, '')
+      return this.query('//md:EntityDescriptor/@entityID')[0].value.replace(/[\r\n\t\s]/gm, '')
     } catch (e) {
       if (this.#options.throwExceptions) {
         throw e

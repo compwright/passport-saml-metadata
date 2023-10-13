@@ -50,6 +50,20 @@ describe('MetadataReader', () => {
     })
   })
 
+  describe('exposes methods', () => {
+    let config
+
+    beforeAll(() => {
+      config = new MetadataReader(metadata)
+    })
+
+    test('query()', () => {
+      const result = config.query('//md:IDPSSODescriptor/md:KeyDescriptor[@use="encryption" or not(@use)]/sig:KeyInfo/sig:X509Data/sig:X509Certificate')
+      const encryptionCert = result[0].firstChild.data // equivalent to config.encryptionCert
+      assert.strictEqual(encryptionCert, 'MIIC4jCCAcqgAwIBAgIQXYcAQ3jZkL9Jk9d7fx+xBjANBgkqhkiG9w0BAQsFADAtMSswKQYDVQQDEyJBREZTIEVuY3J5cHRpb24gLSBzdHMudW5pbGV2ZXIuY29tMB4XDTE0MDEzMDIzMzE1OVoXDTE1MDEzMDIzMzE1OVowLTErMCkGA1UEAxMiQURGUyBFbmNyeXB0aW9uIC0gc3RzLnVuaWxldmVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK+mqNP12dt1or2EpIpjHDwoC9Erkso3vDAwJ5vpHI7wRaTTnieiI6rtujQDDINNky98TdM7oD4JO3peaZHFuHeIsol8Gpqw9PnA7RA9mpeJ1irCp8DtSQdTcfKBLQ+YbMWSvFF4Z6xaP2BMggkB15H/+FD31BUSyBD3bLbeOlS/1loqtfyHJCYkGXc8wKLNbLItT1wku63X4YjpOOOEUh+jGoVCXYwkOhScmji/7MhdV9woqyxi5F/rmCrOIJHgqNBa4cwb/1+GSrYHNUPBLanXB+zS6hmAu3ceG9IaWDcxXqBISo0mrI80SuobLlEbk9N2JO2WDOLssMkj0/wH27MCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAG04bVFpr0QNDVIFyHcuCbVFMj1ZryYT9U12mwSgkzYjaIeXIFC0UzoGK1YcsNDuFil1LUtgjak1nKNcc50LOtTKDrimRgD6OcUScMLxyogte46E1clvRYvGLiawtvFx9fM9nGyRmybKHxbmLmCXYBEgietahoGrw5ohWQov1hjIRJ4evPvUx9fqi7V13rEvL0s+J2JhbmZIkecWagn+Dno0bvWOkVmPt2A+JB5Yqu5K6wZlBMNYvKyyaKu8TwuVrWZYm+3DJazg3yycLkJDkxpEGnj+exZ8j7e0Jhcfhk1UeqJ/e/8fwcZ3IostF93+Nc2mMJHmFKfLnFDJDYtZQbw==')
+    })
+  })
+
   describe('handles no KeyDescriptor use attribute', () => {
     let config
 
