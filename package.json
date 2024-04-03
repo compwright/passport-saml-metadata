@@ -75,7 +75,7 @@
     "axios": "^1.2.1",
     "debug": "^4.3.4",
     "lodash": "^4.17.21",
-    "xpath": "^0.0.33"
+    "xpath": "^0.0.34"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.21.2",
