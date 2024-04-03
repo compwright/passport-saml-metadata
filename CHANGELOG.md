@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/compwright/passport-saml-metadata/compare/v3.2.0...v4.0.0) (2024-04-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgrade @node-saml/node-saml to v5 (#47)
+
+* upgrade @node-saml/node-saml to v5 ([#47](https://github.com/compwright/passport-saml-metadata/issues/47)) ([e185a0e](https://github.com/compwright/passport-saml-metadata/commit/e185a0efd45d0c94dc2e2727b123dd4da3e7d3fb))
+
 ## [3.2.0](https://github.com/compwright/passport-saml-metadata/compare/v3.1.2...v3.2.0) (2023-10-13)
 
 
