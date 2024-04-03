@@ -21,7 +21,7 @@ declare function toPassportConfig(reader?: {}, options?: {
     identityProviderUrl: any;
     entryPoint: any;
     logoutUrl: any;
-    cert: any;
+    idpCert: any;
     identifierFormat: any;
 };
 

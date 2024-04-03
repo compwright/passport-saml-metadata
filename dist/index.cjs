@@ -286,7 +286,7 @@ function toPassportConfig(reader = {}, options = { multipleCerts: false }) {
     identityProviderUrl,
     entryPoint: identityProviderUrl,
     logoutUrl,
-    cert: !options.multipleCerts ? [].concat(signingCerts).pop() : signingCerts,
+    idpCert: !options.multipleCerts ? [].concat(signingCerts).pop() : signingCerts,
     identifierFormat
   };
   debug("Extracted configuration", config);
