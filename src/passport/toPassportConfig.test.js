@@ -17,7 +17,7 @@ describe('passport helpers', () => {
       entryPoint: 'a',
       identityProviderUrl: 'a',
       logoutUrl: 'b',
-      cert: 'c2',
+      idpCert: 'c2',
       identifierFormat: 'd'
     })
   })
@@ -27,7 +27,7 @@ describe('passport helpers', () => {
       entryPoint: 'a',
       identityProviderUrl: 'a',
       logoutUrl: 'b',
-      cert: ['c', 'c2'],
+      idpCert: ['c', 'c2'],
       identifierFormat: 'd'
     })
   })

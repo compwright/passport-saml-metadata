@@ -70,7 +70,7 @@
     "dist"
   ],
   "dependencies": {
-    "@node-saml/node-saml": "^4.0.3",
+    "@node-saml/node-saml": "^5.0.0",
     "@xmldom/xmldom": "^0.8.6",
     "axios": "^1.2.1",
     "debug": "^4.3.4",
