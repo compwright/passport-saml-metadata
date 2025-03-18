@@ -22,7 +22,7 @@ export class MetadataReader {
   constructor (metadata, options = {}) {
     assert.equal(typeof metadata, 'string', 'metadata must be an XML string')
 
-    this.#doc = new DOMParser().parseFromString(metadata)
+    this.#doc = new DOMParser().parseFromString(metadata, 'text/xml')
 
     this.#select = xpath.useNamespaces({
       md: 'urn:oasis:names:tc:SAML:2.0:metadata',

@@ -22,46 +22,27 @@ const find__default = /*#__PURE__*/_interopDefaultCompat(find);
 const sortBy__default = /*#__PURE__*/_interopDefaultCompat(sortBy);
 const xpath__default = /*#__PURE__*/_interopDefaultCompat(xpath);
 
-var __accessCheck = (obj, member, msg) => {
-  if (!member.has(obj))
-    throw TypeError("Cannot " + msg);
-};
-var __privateGet = (obj, member, getter) => {
-  __accessCheck(obj, member, "read from private field");
-  return getter ? getter.call(obj) : member.get(obj);
-};
-var __privateAdd = (obj, member, value) => {
-  if (member.has(obj))
-    throw TypeError("Cannot add the same private member more than once");
-  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-};
-var __privateSet = (obj, member, value, setter) => {
-  __accessCheck(obj, member, "write to private field");
-  setter ? setter.call(obj, value) : member.set(obj, value);
-  return value;
-};
-var _options, _doc, _select;
 const debug$3 = new Debug__default("passport-saml-metadata");
 class MetadataReader {
+  #options = {
+    authnRequestBinding: "HTTP-Redirect",
+    throwExceptions: false
+  };
+  #doc;
+  #select;
   constructor(metadata, options = {}) {
-    __privateAdd(this, _options, {
-      authnRequestBinding: "HTTP-Redirect",
-      throwExceptions: false
-    });
-    __privateAdd(this, _doc, void 0);
-    __privateAdd(this, _select, void 0);
     assert__default.equal(typeof metadata, "string", "metadata must be an XML string");
-    __privateSet(this, _doc, new xmldom.DOMParser().parseFromString(metadata));
-    __privateSet(this, _select, xpath__default.useNamespaces({
+    this.#doc = new xmldom.DOMParser().parseFromString(metadata, "text/xml");
+    this.#select = xpath__default.useNamespaces({
       md: "urn:oasis:names:tc:SAML:2.0:metadata",
       claim: "urn:oasis:names:tc:SAML:2.0:assertion",
       sig: "http://www.w3.org/2000/09/xmldsig#"
-    }));
-    __privateSet(this, _options, merge__default(__privateGet(this, _options), options));
+    });
+    this.#options = merge__default(this.#options, options);
   }
   query(query) {
     try {
-      return __privateGet(this, _select).call(this, query, __privateGet(this, _doc));
+      return this.#select(query, this.#doc);
     } catch (e) {
       debug$3(`Could not read xpath query "${query}"`, e);
       throw e;
@@ -71,7 +52,7 @@ class MetadataReader {
     try {
       return this.query("//md:IDPSSODescriptor/md:NameIDFormat/text()")[0].nodeValue;
     } catch (e) {
-      if (__privateGet(this, _options).throwExceptions) {
+      if (this.#options.throwExceptions) {
         throw e;
       } else {
         return void 0;
@@ -89,12 +70,12 @@ class MetadataReader {
       });
       const singleSignOnServiceElement = find__default(singleSignOnServiceElements, (element) => {
         return find__default(element.attributes, {
-          value: `urn:oasis:names:tc:SAML:2.0:bindings:${__privateGet(this, _options).authnRequestBinding}`
+          value: `urn:oasis:names:tc:SAML:2.0:bindings:${this.#options.authnRequestBinding}`
         });
       }) || singleSignOnServiceElements[0];
       return find__default(singleSignOnServiceElement.attributes, { name: "Location" }).value;
     } catch (e) {
-      if (__privateGet(this, _options).throwExceptions) {
+      if (this.#options.throwExceptions) {
         throw e;
       } else {
         return void 0;
@@ -112,12 +93,12 @@ class MetadataReader {
       });
       const singleLogoutServiceElement = find__default(singleLogoutServiceElements, (element) => {
         return find__default(element.attributes, {
-          value: `urn:oasis:names:tc:SAML:2.0:bindings:${__privateGet(this, _options).authnRequestBinding}`
+          value: `urn:oasis:names:tc:SAML:2.0:bindings:${this.#options.authnRequestBinding}`
         });
       }) || singleLogoutServiceElements[0];
       return find__default(singleLogoutServiceElement.attributes, { name: "Location" }).value;
     } catch (e) {
-      if (__privateGet(this, _options).throwExceptions) {
+      if (this.#options.throwExceptions) {
         throw e;
       } else {
         return void 0;
@@ -132,7 +113,7 @@ class MetadataReader {
       }
       return certs.map((node) => node.firstChild.data.replace(/[\r\n\t\s]/gm, ""));
     } catch (e) {
-      if (__privateGet(this, _options).throwExceptions) {
+      if (this.#options.throwExceptions) {
         throw e;
       } else {
         return void 0;
@@ -143,7 +124,7 @@ class MetadataReader {
     try {
       return this.encryptionCerts[0];
     } catch (e) {
-      if (__privateGet(this, _options).throwExceptions) {
+      if (this.#options.throwExceptions) {
         throw e;
       } else {
         return void 0;
@@ -158,7 +139,7 @@ class MetadataReader {
       }
       return certs.map((node) => node.firstChild.data.replace(/[\r\n\t\s]/gm, ""));
     } catch (e) {
-      if (__privateGet(this, _options).throwExceptions) {
+      if (this.#options.throwExceptions) {
         throw e;
       } else {
         return void 0;
@@ -169,7 +150,7 @@ class MetadataReader {
     try {
       return this.signingCerts[0];
     } catch (e) {
-      if (__privateGet(this, _options).throwExceptions) {
+      if (this.#options.throwExceptions) {
         throw e;
       } else {
         return void 0;
@@ -185,14 +166,14 @@ class MetadataReader {
           const camelized = camelCase__default(description);
           claims[node.value] = { name, description, camelCase: camelized };
         } catch (e) {
-          if (__privateGet(this, _options).throwExceptions) {
+          if (this.#options.throwExceptions) {
             throw e;
           }
         }
         return claims;
       }, {});
     } catch (e) {
-      if (__privateGet(this, _options).throwExceptions) {
+      if (this.#options.throwExceptions) {
         throw e;
       }
       return {};
@@ -202,7 +183,7 @@ class MetadataReader {
     try {
       return this.query("//md:EntityDescriptor/@entityID")[0].value.replace(/[\r\n\t\s]/gm, "");
     } catch (e) {
-      if (__privateGet(this, _options).throwExceptions) {
+      if (this.#options.throwExceptions) {
         throw e;
       } else {
         return void 0;
@@ -210,9 +191,6 @@ class MetadataReader {
     }
   }
 }
-_options = new WeakMap();
-_doc = new WeakMap();
-_select = new WeakMap();
 
 const debug$2 = new Debug__default("passport-saml-metadata");
 const defaults = {
