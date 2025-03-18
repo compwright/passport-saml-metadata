@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/compwright/passport-saml-metadata/compare/v4.0.0...v5.0.0) (2025-03-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* drop support for node < 18
+
+### Features
+
+* drop support for node < 18 ([b83e827](https://github.com/compwright/passport-saml-metadata/commit/b83e827204f2c61a15629f177c344c1b34d41216))
+* upgrade to @xmldom/xmldom v0.9.8 and @node-saml/node-saml v5.0.1 ([2a4b35f](https://github.com/compwright/passport-saml-metadata/commit/2a4b35f45bb5550ba85ce5e6b4ec9a3ee12dc3f6))
+
 ## [4.0.0](https://github.com/compwright/passport-saml-metadata/compare/v3.2.0...v4.0.0) (2024-04-03)
 
 
