@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := build
 
 lint:
-	node_modules/.bin/eslint src --fix
+	node_modules/.bin/standard src --fix
 
 test: lint
 	NODE_OPTIONS=--experimental-vm-modules node_modules/.bin/jest --rootDir src

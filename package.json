@@ -78,13 +78,9 @@
     "xpath": "^0.0.34"
   },
   "devDependencies": {
-    "axios-mock-adapter": "^1.21.2",
-    "eslint": "^8.30.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^16.2.0",
-    "eslint-plugin-promise": "^6.1.1",
+    "axios-mock-adapter": "^2.1.0",
     "jest": "latest",
+    "standard": "latest",
     "standard-version": "latest",
     "unbuild": "latest"
   }
